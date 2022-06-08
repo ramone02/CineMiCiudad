@@ -1,13 +1,16 @@
 class Funcion {
-    constructor(id, dia, hora, pelicula, precio) {
+    constructor(id, dia, hora, pelicula, precio, disponibilidad) {
         this.id = id;
         this.dia = dia;
         this.hora = hora;
         this.pelicula = pelicula;        
         this.precio = precio;
         this.promocion = false;
-        this.disponibilidad = true;
+        this.disponibilidad = disponibilidad;
+        this. estreno = false;
     }
+
+    
 
     setPromocion() {
         //pregunto si no esta en promocion, si no esta, entra en promo
@@ -35,7 +38,9 @@ class Funcion {
             return false;
         }
     }
-
+    getPrecio() {
+        return this.precio;
+    }
     /* setFuncion(dia, hora, pelicua, precio){
         if (condition) {
             

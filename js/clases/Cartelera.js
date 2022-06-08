@@ -1,6 +1,6 @@
 /* clases a utilizar en el proyecto cine */
 
-class Cartelera {
+/* class Cartelera {
     constructor(funciones, dia, mes) {
         this.funciones = funciones;
         this.dia = dia;
@@ -19,7 +19,7 @@ class Cartelera {
                 //pregunto si hay alguna funcion el dia que me pasaron
                 // Imprimo
                 if (funcion.dia == dia) {
-                    alert(
+                    console.log(
                         `Dia: ${funcion.dia},\n
                     Hora: ${funcion.hora},\n 
                     Pelicula: ${funcion.pelicula.nombre},\n                      
@@ -29,7 +29,7 @@ class Cartelera {
                     );
                 } else {
                     //Sino muestro msj de que no se encontraron en la fecha indicada
-                    alert(
+                    console.log(
                         `No se encontraron funciones \n
                         para el dia ${dia}\n
                         del mes ${mes}`
@@ -51,4 +51,4 @@ class Cartelera {
             );
         }
     }
-}
+} */
