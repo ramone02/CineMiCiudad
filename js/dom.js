@@ -28,10 +28,16 @@ function agregarBotoneraSemana(){
         //me traigo ese boton que acabo insertar en el html 
         const btnDia = document.getElementById(`btn-${dia}`);
         //le agrego el evento onclick - para que cuando lo apriete me traiga esas peliculas de ese dia
-        btnDia.onclick = (e) => {
+        /* btnDia.onclick = (e) => {
             let diaIngresado = llenarCarteleraxDia(e.target.value);
             llenarCarteleraxDia(diaIngresado);
-        }        
+        } */
+        btnDia.onclick = (e) => {
+            let diaIngresado = e.target.value
+            console.log(diaIngresado);
+            llenarCarteleraxDia(diaIngresado);
+        }
+        
     })
 }
 
@@ -51,11 +57,8 @@ function agregarPeliculaCarrito(idFuncion){
 
 function llenarCarteleraMain(cartelera){
     //limpiar el main div
-    //ver esto
-    console.log("Holaafuera");
-    /* divCartelera.innerHTML = "";  */   
+    divCartelera.innerHTML = "";    
     cartelera.forEach((funcion) => {
-        console.log("Holaadentro");
         //Creo la etiqueta div(card) dentro de mi main #divCartelera
         const cardPelicula = document.createElement("div");
         //Le añado las clases correspondientes a mi "div card"
