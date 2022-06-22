@@ -33,13 +33,14 @@
                 <div class="text-end">
                     <button type="button" class="btn btn-outline-light me-2">Iniciar Session</button>
                     <button type="button" class="btn btn-outline-light me-2">Registrarse</button>
-                    <button type="button" class="btn btn-outline-light btn-sm"><img src="./img/carrito.ico"
-                            alt="Carrito de Compras" width="26"></button>
+                    <button type="button" class="btn btn-outline-light btn-sm" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal"><img src="./img/carrito.ico" alt="Carrito de Compras" width="26">
+                        <span id="contadorCarrito"></span></button>
                 </div>
             </div>
         </div>
     </header>
-    <main class="">
+    <main class="main-container">
         <!-- Carrousel -->
         <div id="carouselExampleCaptions" class="carousel slide " data-bs-ride="carousel">
             <div class="carousel-inner">
@@ -76,55 +77,180 @@
                 </button>
             </div>
         </div>
-        <div class="container secondary-navbar bg-dark text-white mt-3">
-            <div class="d-flex flex-wrap align-items-center justify-content-evenly justify-content-lg-start"></div>
+        <div class="container d-flex flex-wrap align-items-center justify-content-around align-self-stretch  p-3 text-white"
+            id="cartelera">
             <div class="d-flex justify-content-between">
-                <h2>Cartelera</h2>
-                <div class="btn-group btn-group-nav" id="botoneraSemana">
-
+                <div class="" id="botoneraSemana">
+                    <button type="button" class="btn-outline-light btn-sm text-black"
+                        id="cargarMainCartelera">Cartelera</button>
                 </div>
-                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-                    <input type="search" class="form-control form-control-dark text-black "
-                        placeholder="Ingrese su Busqueda" aria-label="Search">
-                </form>
             </div>
-        </div>
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                <input type="search" class="form-control form-control-dark text-black "
+                    placeholder="Ingrese su Busqueda" aria-label="Search" id="buscador">
+            </form>
+
         </div>
         <div class="container" id="divCartelera">
             <!-- <div class="secondary-navbar bg-dark text-white sticky-top">
-                <div class="d-flex justify-content-between">
-                    <h2>Cartelera</h2>
-                    <div class="btn-group btn-group-nav">
-                        <button type="button" class="btn btn-outline-light">Hoy</button>
-                        <button type="button" class="btn btn-outline-light">Lunes</button>
-                        <button type="button" class="btn btn-outline-light">Martes</button>
-                        <button type="button" class="btn btn-outline-light">Miercoles</button>
-                        <button type="button" class="btn btn-outline-light">Viernes</button>
-                        <button type="button" class="btn btn-outline-light">Sabado</button>
-                        <button type="button" class="btn btn-outline-light">Domingo</button>
-                    </div>
-                </div>
-            </div> -->
+                        <div class="d-flex justify-content-between">
+                            <h2>Cartelera</h2>
+                            <div class="btn-group btn-group-nav">
+                                <button type="button" class="btn btn-outline-light">Hoy</button>
+                                <button type="button" class="btn btn-outline-light">Lunes</button>
+                                <button type="button" class="btn btn-outline-light">Martes</button>
+                                <button type="button" class="btn btn-outline-light">Miercoles</button>
+                                <button type="button" class="btn btn-outline-light">Viernes</button>
+                                <button type="button" class="btn btn-outline-light">Sabado</button>
+                                <button type="button" class="btn btn-outline-light">Domingo</button>
+                            </div>
+                        </div>
+                    </div> -->
             <!-- Card -->
             <!-- <div class="card producto m-3 bg-secondary bg-opacity-75 text-white">
-                <div class="align-items-center text-center">
-                    <h4 class="p-3">Ex-Machine</h4>
-                    <img src="./img/exmachine.jpg" alt="Remera Personalizada" class="rounded pt-2" width="228">
-                    
-                    <div class="mt-3 info">
-                        <span class="d-block">Lunes</span>
-                        <span class="d-block">Horario - 20:00 Hs</span>
+                        <div class="align-items-center text-center">
+                            <h4 class="p-3">Ex-Machine</h4>
+                            <img src="./img/exmachine.jpg" alt="Remera Personalizada" class="rounded pt-2" width="228">
+                            
+                            <div class="mt-3 info">
+                                <span class="d-block">Lunes</span>
+                                <span class="d-block">Horario - 20:00 Hs</span>
+                            </div>
+                            <div class="precio m-2">
+                                <span class="d-block">Entrada General</span>
+                                <span>$300</span>
+                            </div>
+                        </div>-->
+        </div>
+        <!-- Modal Carrito de Compra -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Carrito de Compras</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="precio m-2">
-                        <span class="d-block">Entrada General</span>
-                        <span>$300</span>
+                    <div class="modal-body">
+                        <table class="table table-dark table-striped" id="tablaCarrito">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Dia</th>
+                                    <th scope="col">Hora</th>
+                                    <th scope="col">Pelicula</th>
+                                    <th scope="col">Precio</th>
+                                    <th scope="col">Cantidad</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <!-- <tbody >
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>Jacob</td>
+                                    <td>Thornton</td>
+                                    <td>@fat</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td colspan="2">Larry the Bird</td>
+                                    <td>@twitter</td>
+                                </tr>
+                            </tbody> -->
+                        </table>
+                        <div class="d-flex flex-row-reverse">
+                            <span type="button" class="btn btn-dark disabled" id="precioTotal"></span>
+                        </div>
+
                     </div>
-                </div>-->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-success">PAGAR</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
-    <footer class="container-fluid p-3 mb-5 rounded mt-5">
 
+    <!-- MEJORAR FOOOTER -->
+    <!-- 
+    <footer class="container-fluid p-3 mb-5 rounded mt-5"> -->
+    <footer class="container p-3 mb-5 rounded mt-5">
+        <div class="d-flex justify-content-center">
+            <div class="text-center">
+                <span class="btn btn-dark">FORMAS DE PAGO</span>
+                <ul class="d-flex flex-row mt-4">
+                    <li><img src="https://essential.vteximg.com.br/arquivos/mark_mpagotodopago.png?v=636809932884830000">
+                    </li>
+                    <li><img src="https://essential.vteximg.com.br/arquivos/mark_medios__(2).png?v=636807433271530000"></li>
+                    <li><img src="https://essential.vteximg.com.br/arquivos/mark_medios__(3).png?v=636749411141100000"></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
+            <div class="col mb-3">
+                <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
+                    <svg class="bi me-2" width="40" height="32">
+                        <use xlink:href="#bootstrap" />
+                    </svg>
+                </a>
+                <p class="text-muted">&copy; 2022</p>
+            </div>
+            
+            <div class="col mb-3">
+            
+            </div>
+            
+            <div class="col mb-3">
+                <h5>Section</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+                </ul>
+            </div>
+            
+            <div class="col mb-3">
+                <h5>Section</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+                </ul>
+            </div>
+            
+            <div class="col mb-3">
+                <h5>Section</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+                </ul>
+            </div>
+        </div>
     </footer>
+    <!-- <div class="container d-flex justify-content-center">
+            <div class="text-center">
+                <span class="btn btn-dark">FORMAS DE PAGO</span>
+            <ul class="d-flex flex-row mt-4">
+                <li><img src="https://essential.vteximg.com.br/arquivos/mark_mpagotodopago.png?v=636809932884830000">
+                </li>
+                <li><img src="https://essential.vteximg.com.br/arquivos/mark_medios__(2).png?v=636807433271530000"></li>
+                <li><img src="https://essential.vteximg.com.br/arquivos/mark_medios__(3).png?v=636749411141100000"></li>
+            </ul>
+            </div>
+        </div>
+    </footer> -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
         integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
         crossorigin="anonymous"></script>

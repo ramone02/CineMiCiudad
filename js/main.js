@@ -38,14 +38,9 @@ function verPeliculasDisponibles() {
 function adquirirEntrada(dia, hora, pelicula){
     //busco la funcion en la cartelera que tenga ese dia hora y esa pelicula, deberia preguntar si esta disponible tambien
     const entrada = carteleraPrincipal.find((funcion) => funcion.dia === dia && funcion.hora === hora && funcion.pelicula.nombre === pelicula);
-    
-    //lo dejo comentado por si tengo que debuggear otra vez
-    console.log("Entrada aca");
-
     //pusheo a mi carrito esa "Entrada" rearmada con otras propiedades - pienso en crear un objeto "Entrada"
     carrito.push({Pelicula: entrada.pelicula.nombre, Dia: entrada.dia, Hora: entrada.hora, Precio: entrada.precio, Promocion: entrada.promocion});
-    console.log("Pase por aqui");    
-
+        
     //Aca dejo como lo estaba haciendo no funcionaba del todo, me agregaba una funcion si la encontro pero luego seguia recorriendo y lo llenaba con "vacio"
     /* const entrada = cartelera.map((funcion)=>{
         if (funcion.dia == dia && funcion.hora == hora && funcion.pelicula.nombre == pelicula) {
@@ -92,7 +87,7 @@ carteleraPrincipal.push(funcion10);
 /* ---------------------------------------------------------------------------------- */
 /* Carrito */
 let total = 0;
-const carrito = [];
+let carrito = [];
 
 /* function mostrarCarrito(){
     carrito.forEach((entrada)=>{
