@@ -3,8 +3,17 @@
     margin: 0;
     box-sizing: border-box;    
 }
-body {
-    /* background: url(../img/bg-cine.jpg); */
+header, body {
+    background: rgb(46,4,71);
+background: radial-gradient(circle, rgba(46,4,71,1) 0%, rgba(0,0,0,1) 100%);
+
+}
+.card{
+    background: #5d5179 !important;
+    opacity: 25;
+}
+.btn{
+    background: #4f759b !important;
 }
 ul{
     list-style: none;

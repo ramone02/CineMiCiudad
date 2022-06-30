@@ -1,56 +1,8 @@
 /* Main */
 /* ---------------------------------------------------------------------------------- */
 /* Cartelera */
-
 const carteleraPrincipal = [];
 
-// ver toda la cartelera de la semana
-function verCartelera() {
-    carteleraPrincipal.forEach((funcion) => {
-        console.log(`Dia: ${funcion.dia} - Hora: ${funcion.hora}`);
-        console.log(`Pelicula: ${funcion.pelicula.nombre}`);
-        console.log(`Precio: ${funcion.precio}`);
-    });
-}
-
-// ver funciones por dia pasado por parametro
-function verCarteleraxDia(diaIngresado) {
-    const funcion = carteleraPrincipal.filter((funcion) => funcion.dia === diaIngresado);
-    funcion.forEach((funcion) => {
-        console.log(`Dia: ${funcion.dia} - Hora: ${funcion.hora}`);
-        console.log(`Pelicula: ${funcion.pelicula.nombre}`);
-        console.log(`Precio: ${funcion.precio}`);
-    });
-}
-
-//funcion para ver pelicula que tengan entradas o este dispob¿nible -  en un futuro aplicar propiedad cantidad entradas y descontar cada vez que se venda, de la funcion
-// Podria pasarle algun valor pero que sea opcional, si me pasa el nombre de la pelicula le devuelvo todas las funciones d ela misma que esten disponibles
-// Sino le devuelvo "TODAS" las peliculas con entradas disponibles
-function verPeliculasDisponibles() {
-    const peliculasDisponibles = carteleraPrincipal.filter((funcion) => funcion.disponibilidad === true);
-    peliculasDisponibles.forEach((funcion) =>{
-        console.log(`Pelicula: ${funcion.pelicula.nombre} \n Dia: ${funcion.dia} - Hora: ${funcion.hora}`);
-        console.log(`Entradas Disponibles: Si \n Precio: ${funcion.precio}`)
-    })
-}
-
-//funcion para adquirir entrada por dia - hora - pelicula
-function adquirirEntrada(dia, hora, pelicula){
-    //busco la funcion en la cartelera que tenga ese dia hora y esa pelicula, deberia preguntar si esta disponible tambien
-    const entrada = carteleraPrincipal.find((funcion) => funcion.dia === dia && funcion.hora === hora && funcion.pelicula.nombre === pelicula);
-    //pusheo a mi carrito esa "Entrada" rearmada con otras propiedades - pienso en crear un objeto "Entrada"
-    carrito.push({Pelicula: entrada.pelicula.nombre, Dia: entrada.dia, Hora: entrada.hora, Precio: entrada.precio, Promocion: entrada.promocion});
-        
-    //Aca dejo como lo estaba haciendo no funcionaba del todo, me agregaba una funcion si la encontro pero luego seguia recorriendo y lo llenaba con "vacio"
-    /* const entrada = cartelera.map((funcion)=>{
-        if (funcion.dia == dia && funcion.hora == hora && funcion.pelicula.nombre == pelicula) {
-            return {Pelicula: funcion.pelicula.nombre, Dia: funcion.dia, Hora: funcion.hora, Precio: funcion.precio, Promocion: funcion.promocion}
-        }else{
-            console.log(`No se ha encontrado una funcion para la Pelicula: ${pelicula}\n El día: ${dia}\n A la hora: ${hora}`);
-            console.log(`Intente nuevamente`);
-        }
-    }); */
-}
 
 
 const pelicula1 = new Pelicula(1,"Pulp Fiction", "Drama Policiaco", 140, "2D", "27/03/2022", "../img/pulpfiction.jpg");
@@ -83,57 +35,3 @@ carteleraPrincipal.push(funcion7);
 carteleraPrincipal.push(funcion8);
 carteleraPrincipal.push(funcion9);
 carteleraPrincipal.push(funcion10);
-
-/* ---------------------------------------------------------------------------------- */
-/* Carrito */
-let total = 0;
-let carrito = [];
-
-/* function mostrarCarrito(){
-    carrito.forEach((entrada)=>{
-        console-log(`Usted tiene entrada para:\n ${entrada.pelicula.nombre}`);
-    })
-} */
-
-/* ---------------------------------------------------------------------------------- */
-
-function main() {
-    alert("Bienvenido al Cine");
-    do {
-        let opcion = prompt(
-            "Ingrese una opcion: \n 1. Mostrar cartelera \n 2. Ver funciones x Día \n 3. Adquirir Entrada \n 4. Ver mi Carrito - Proceder al Pago");
-        switch (Number(opcion)) {
-            case 1:
-                //Muestro toda la cartelera - Por ahora por semana
-                verCartelera();
-                break;
-            case 2:
-                //Busco y muestro todas las funciones disponibles "x" día
-                let diaFuncion = prompt("Ingrese el dia de la funcion: ");
-                verCarteleraxDia(diaFuncion);
-                break;
-            case 3:
-                let dia, hora, pelicula;
-                //Muestros las funciones disponibles para elegir una bien                
-                verPeliculasDisponibles();
-                // Pido los datos - Por ahora todo en String - proximamento validaciones, entero, vacios, expreciones regulares, etc
-                dia = prompt("Ingrese el dia que desea adquirir entrada: ","Lunes - Martes - Etc");
-                hora = prompt("Ingrese la hora que desea adquirir entrada: ", "16:00 - 20:00 - 22:00");
-                pelicula = prompt("Ingrese el nombre de la Pelicula que desea adquirir entrada", "Interestellar - Fight Club");
-                //Llamo a mi funcion
-                adquirirEntrada(dia, hora, pelicula);
-                //Debugg
-                console.log("Ya cargue la entrada");
-                console.log(carrito);
-                /* Hacer funcion para comprar productos -  mostrarlos, etc (Lo mismo que con las entradas) 
-                Y sumarlo al carrito
-                Despues sumar todo lo del carrito y procedeer al pago, antes ver el tema de las cantidad de entradas, hacerlo desde el carrito(sumarlas o  (*) cantidad )*/
-                break;
-            default:
-                console.log("Opcion no valida");
-                break;
-        }
-    } while (confirm("Desea continuar?"));
-}
-/* main(); */
-/* cartelera.mostrarTodaLaCartelera(); */
