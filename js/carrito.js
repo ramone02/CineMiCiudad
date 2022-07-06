@@ -1,12 +1,92 @@
-/* Carrito */
-let total = 0;
-let carrito = [];
-
 /* ------------- Variables del Dom ----------------------- */
 const tablaCarrito = document.getElementById("tablaCarrito");
 const contadorCarrito = document.getElementById("contadorCarrito");
 const precioTotal = document.getElementById("precioTotal");
 const carritoDeCompra = document.getElementById("carritoDeCompras");
+const btnMp = document.getElementById("pagarMp");
+
+/* Carrito */
+let total = 0;
+let carrito = [];
+
+/* // SDK de Mercado Pago
+const Mercadopago = require("mercadopago");
+// Agrega credenciales
+mercadopago.configure({
+    access_token: "TEST-8453804254204179-070217-5b24e17364f98f6b38d95dd38dd4ad85-164578592",
+});
+
+// SDK de Mercado Pago
+const mercadopago = new MercadoPago('TEST-b9dc0b20-449a-4cdd-a110-91cf7726ab46', {
+    locale: 'es-AR' // The most common are: 'pt-BR', 'es-AR' and 'en-US'
+});
+const preference = {
+    items: []
+};
+
+btnMp.addEventListener("click", () => {
+    $('#btnMp').attr("disabled", true);
+    const orderData = {
+        quantity: carrito.reduce((acc, e) => acc + e.cantidad, 0),
+        description: "Entradas para las Peliculas",
+        price: carrito.reduce((acc, e) => acc + e.precio * e.cantidad, 0)
+    };
+    fetch("/create_preference", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(orderData),
+    })
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (preference) {
+            createCheckoutButton(preference.id);
+
+            $("#carritoDeCompra").fadeOut(500);
+            setTimeout(() => {
+                $(".container_payment").show(500).fadeIn();
+            }, 500);
+        })
+        .catch(function () {
+            alert("Unexpected error");
+            $('#btnMp').attr("disabled", false);
+        });
+});
+
+function createCheckoutButton(preferenceId) {
+    // Initialize the checkout
+    mercadopago.checkout({
+        preference: {
+            id: preferenceId
+        },
+        render: {
+            container: '#btnMp', // Class name where the payment button will be displayed
+            label: 'Pay', // Change the payment button text (optional)
+        }
+    });
+} */
+
+/* const cargarMercadoPago = async() => {
+    carrito.forEach(() => {
+        preference.items.push(
+            {
+                id: `${carrito.id}`,
+                title: `Entrada para ${carrito.pelicula}`,
+                currency_id: "ARS",
+                picture_url: "https://www.mercadopago.com/org-img/MP3/home/logomp3.gif",
+                description: "Descripción del Item",
+                category_id: `Entrada para ${carrito.pelicula} - Para el dia ${carrito.dia} a las ${carrito.hora} hs`,
+                quantity: `${carrito.cantidad}`,
+                unit_price: `${carrito.precio}`
+            }
+        );
+    });
+    const response = await mercadopago.preferences.create(preference);
+    const preferenceId = response.body.id;
+}; */
+
 
 /* como mostraba el carrito antes
 Mostrar carrito
@@ -39,7 +119,7 @@ const mostrarCarritoCompras = () => {
                                 <td>${producto.precio}</td>
                                 <td><input class="w-50" id="cantidadEntrada" type="number" value="${producto.cantidad}" min="1" max="5"></input></td>
                                 <td><button class="btn btn-danger" id="btnEliminarProducto${producto.id}" onclick="borrarProductoCarrito(${producto.id})">X</button></td>
-                                `;        
+                                `;
         tablaCarrito.appendChild(filaCarrito);
         //agrego evento eliminar producto    
         /* const btnEliminarProducto = document.getElementById(`btnEliminarProducto${producto.id}`);
@@ -98,7 +178,7 @@ function borrarProductoCarrito(idProducto) {
                 mostrarCarritoCompras();
             } else {
                 const btnEliminarProducto = document.getElementById(`btnEliminarProducto${idProducto}`);
-                carrito.splice(index, 1);                
+                carrito.splice(index, 1);
                 btnEliminarProducto.closest("tr").remove();
                 localStorage.setItem("carrito", JSON.stringify(carrito));
                 actualizarCarrito();
@@ -176,7 +256,7 @@ function agregarPeliculaCarrito(idFuncion) {
         const entradaCarrito = {id, pelicula:{nombre}, dia, precio, promocion, cantidad: 1} = entrada;
         carrito.push({ id: idFuncion, pelicula: entrada.pelicula.nombre, dia: entrada.dia, hora: entrada.hora, precio: entrada.precio, promocion: entrada.promocion, cantidad: 1 });
     } */
-    
+
     //Primero pregunto si existe en mi carrito una "entrada/funcion" con ese id, si existe le sumo uno a cantidad si no pusheo "la entrada/funcion" al carrito
     /* carrito.some((entrada) => entrada.id === parseInt(idFuncion)) 
         ? carrito.find((entrada) => entrada.id === parseInt(idFuncion)).cantidad++
