@@ -4,34 +4,42 @@ const cargarPeliculas = async () => {
     try {
         const respuesta = await fetch('https://api.themoviedb.org/3/movie/popular?api_key=aa4d1dcb34ae6a710cc1dfbc9f983e9c&language=es');
         const datos = await respuesta.json();
-        /* datos.results.forEach((pelicula)=>{
-            console.log(pelicula.title);
-        }); */
-        console.log(datos.results);
-        return datos.results;/* 
-        cargarEstrenos(datos.results); */
-
+        return datos.results;
     } catch (error) {
         console.log(error);
     }
 }
 
-const cotizacionDolar = async () => {
+
+/* const datosDolar = async =>{
     try {
-        const dolarOficial = await fetch('https://api-dolar-argentina.herokuapp.com/api/dolaroficial', {'mode': 'no-cors'})
-            .then((datosOficial) => datosOficial.json())
-            .then((data) => console.log(data));
-        
-
-
-        
-        /* 
-        const dolarBlue = await fetch('https://api-dolar-argentina.herokuapp.com/api/dolarblue');
-        const datosBlue = await dolarBlue.json(); */
-
+        const options = {
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Key': 'dca2cd2e4amsh20d0eb4d2f386d1p15b6bfjsn0fb3a2bf274c',
+                'X-RapidAPI-Host': 'dolarapi.p.rapidapi.com'
+            }
+        };
+        fetch('https://dolarapi.p.rapidapi.com/blue', options)
+            .then(response => response.json())
+            .then(response => console.log(response));
     } catch (error) {
-        console.error(error);
+        console.log(error);
     }
+    
+} */
+
+
+const cotizacionDolar = async () => {
+    
+        const r = await fetch("https://api-dolar-argentina.herokuapp.com/api/dolaroficial");
+        console.log(r);
+        return r.json();
+        /* const dolarOficial = fetch('https://api-dolar-argentina.herokuapp.com/api/dolaroficial', {'mode': 'no-cors'})
+        .then(datos => console.log(datos.json()));     
+        
+        const dolarBlue = await fetch('https://api-dolar-argentina.herokuapp.com/api/dolarblue');
+        const datosBlue = await dolarBlue.json(); */    
 }
 
 const cartelera = document.getElementById("divEstrenos");
@@ -65,4 +73,9 @@ const cargarEstrenos = async () => {
 }
 
 cargarEstrenos();
-cotizacionDolar();
+const mostrar = async () => {
+    const r = await cotizacionDolar();
+    console.log(r);
+} 
+mostrar();
+/* datosDolar(); */
