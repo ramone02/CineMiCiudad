@@ -8,26 +8,6 @@ const contadorCarrito = document.getElementById("contadorCarrito");
 const precioTotal = document.getElementById("precioTotal");
 const carritoDeCompra = document.getElementById("carritoDeCompras");
 
-/* como mostraba el carrito antes
-Mostrar carrito
-function mostrarCarrito() {
-    console.log(`largo del carrito${carrito.length}`);
-    carrito.forEach((producto) => {
-    const tablaDatos = document.createElement("tr");
-    btnTotal.className = "d-flex flex-row-reverse";
-        tablaDatos.innerHTML = `
-                                    <td>${producto.dia}</td>
-                                    <td>${producto.hora}</td>
-                                    <th>${producto.pelicula}</th>
-                                    <td>${producto.precio}</td>
-                                    <td><input class="w-50" id="cantidadEntrada" type="number" value="${producto.cantidad}" min="1" max="5"></input></td>
-                                    <td><button class="btn btn-danger" id="btnEliminarProducto${producto.id}" value="${producto.id}">X</button></td> `
-        tablaCarrito.appendChild(tablaDatos);
-    });
-    actualizarCarrito();
-    localStorage.setItem("carrito", JSON.stringify(carrito));
-} */
-
 const mostrarCarritoCompras = () => {
     tablaCarrito.innerHTML = "";
     carrito.forEach((producto) => {
@@ -41,45 +21,12 @@ const mostrarCarritoCompras = () => {
                                 <td><button class="btn btn-danger" id="btnEliminarProducto${producto.id}" onclick="borrarProductoCarrito(${producto.id})">X</button></td>
                                 `;        
         tablaCarrito.appendChild(filaCarrito);
-        //agrego evento eliminar producto    
-        /* const btnEliminarProducto = document.getElementById(`btnEliminarProducto${producto.id}`);
-        btnEliminarProducto.onclick = (e) => {
-            console.log(e.target.value);
-            Swal.fire({
-                title: "Esta seguro de Eliminar la Entrada?",
-                icon: 'warning',
-                text: "Usted perdera la reserva de esta Entrada",
-                showCancelButton: true,
-                confirmButtonText: 'Si, Eliminala',
-                cancelButtonText: 'No, Cancelar'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    console.log(e.target.value);
-                    borrarProductoCarrito(e.target.value);
-                    btnEliminarProducto.closest("tr").remove();
-                    localStorage.setItem("carrito", JSON.stringify(carrito));
-                    actualizarCarrito();
-                    Swal.fire({
-                        title: 'Eliminada!',
-                        text: 'Usted ha Eliminado la Entrada del Carrito',
-                        icon: 'success'
-                    });
-                } else {
-                    Swal.fire({
-                        title: 'Cancelado!',
-                        text: 'Su Entrada no ha sido borrada',
-                        icon: 'error'
-                    });
-                }
-            });
-        } */
     })
 }
 
 
 /* Quitar producto del Carrito */
 function borrarProductoCarrito(idProducto) {
-    console.log("entrandoa  eliminar");
     Swal.fire({
         title: "Esta seguro de Eliminar la Entrada?",
         icon: 'warning',
@@ -117,43 +64,12 @@ function borrarProductoCarrito(idProducto) {
             });
         }
     });
-
-    /* const entrada = carrito.find((producto) => producto.id === parseInt(idProducto));
-    console.log(`Entrada : ${entrada}`);
-    let index = carrito.indexOf(entrada);
-    console.log(index);
-    console.log(carrito) */
-
-    /* carrito[index]?.cantidad > 1
-        ? carrito.splice(index, 1)
-        && actualizarCarrito()
-        && localStorage.setItem("carrito", JSON.stringify(carrito))
-        : Swal.fire({
-            toast: true,
-            icon: 'warning',
-            title: "Debe tener entradas en su carrito para poder eliminar",
-            position: "top-end"
-        }); */
-    /* if (carrito[index]?.cantidad > 1) {
-        console.log("estoy restando")
-        carrito[index].cantidad--;
-        actualizarCarrito();
-        localStorage.setItem("carrito", JSON.stringify(carrito));
-    }else{
-        carrito.splice(index, 1);
-        actualizarCarrito();
-        localStorage.setItem("carrito", JSON.stringify(carrito));
-    } */
-    //obtengo el index del objeto a borrar
-    /* let index = carrito.indexOf(indice); */
-    //borro el prodcuto del array - solo uno
-    /* carrito.splice(index, 1); */
 }
 
 /* funcion para cargar un objeto "producto" al carrito */
 function agregarPeliculaCarrito(idFuncion) {
     //traigo mi pelicula/ funcion de la cartelera
-    const entrada = carteleraPrincipal.find((funcion) => funcion.id === parseInt(idFuncion));
+    const entrada = stockCartelera.find((funcion) => funcion.id === parseInt(idFuncion));
     // Evaluamos si el producto ya se encuentra en el carrito o no
     //Evaluo si exite el "producto" dentro del carrito, si existe no lo agrego, le sumo uno a su cantidad- si no existe si lo agrego
     if (carrito.some(producto => producto.id === parseInt(idFuncion))) {
@@ -213,12 +129,3 @@ verificarStorage();
 localStorage.getItem('carrito') && (carrito = JSON.parse(localStorage.getItem('carrito')));
 actualizarCarrito();
 mostrarCarritoCompras();
-
-
-
-/* // agrego evento cambiar cantidad de entrada
-        const inputCantidad = document.getElementById("cantidadEntrada");
-        inputCantidad.onchange = (e) => {
-            producto.cantidad = e.target.value;
-            actualizarCarrito();
-        }; */

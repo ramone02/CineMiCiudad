@@ -1,14 +1,14 @@
 
+let stockCartelera = [];
+
 const divCartelera = document.getElementById("divCartelera");
 const buscador = document.getElementById("buscador");
 const btnMain = document.getElementById("cargarMainCartelera");
-//ver de declaclar los obj sweet alert
-// const alertEliminar = Swal.
 
 /* aplico filtrado de busqueda por DIA - NOMBRE PELICULA Y HORA */
 buscador.addEventListener("input", (e) => {
     let input = e.target.value;
-    const filtrado = carteleraPrincipal.filter((funcion) => funcion.dia.toLowerCase().includes(input) || funcion.pelicula.nombre.toLowerCase().includes(input) || funcion.hora.includes(input));
+    const filtrado = stockCartelera.filter((funcion) => funcion.dia.toLowerCase().includes(input) || funcion.pelicula.nombre.toLowerCase().includes(input) || funcion.hora.includes(input));
     llenarCarteleraMain(filtrado);
 });
 
@@ -22,7 +22,7 @@ function agregarBotoneraSemana() {
     dias.forEach((dia) => {
         //Crear siempre los elementos dentro del forEach - Afuera no funciona, imprime/usa siempre el ultimo
         const botoneraSemana = document.createElement("button");
-        botoneraSemana.className = `btn btn-info`;
+        botoneraSemana.className = `btn btn-cta`;
         //Con setAtributt le agrego el tipo Button
         botoneraSemana.setAttribute(`type`, `button`);
         // agreggo un dia por "día", asi puedo manejarlo con eventos
@@ -40,13 +40,24 @@ function agregarBotoneraSemana() {
         }
     })
     //agrego boton para volver a cargar la cartelera por defecto
-    btnMain.onclick = () => llenarCarteleraMain(carteleraPrincipal);
+    btnMain.onclick = () => llenarCarteleraMain(stockCartelera);
 }
 
 /* funcion por la que filtro por dia y cargo la cartelera con ese filtro */
-function llenarCarteleraxDia(diaIngresado) {
-    const carteleraxDia = carteleraPrincipal.filter((funcion) => funcion.dia === diaIngresado);
+async function llenarCarteleraxDia(diaIngresado) {
+    const stockCartelera = await cargarCartelera();
+    const carteleraxDia = stockCartelera.filter((funcion) => funcion.dia === diaIngresado);
     llenarCarteleraMain(carteleraxDia);
+}
+
+const cargarCartelera = async ()=> {
+    try {
+        const respuesta = await fetch('./data/cartelera.json');
+        const data = await respuesta.json();
+        return data;
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 
@@ -55,10 +66,12 @@ function llenarCarteleraxDia(diaIngresado) {
 const recuperarStorage = ((clave) => JSON.parse(localStorage.getItem(clave)));
 const verificarStorage = () => recuperarStorage() && (carrito= recuperarStorage());
 
+
 /* funcion principal donde inyecto las cards en mi "cartelera principal" - agreggo clases y botones de compra por cada card*/
 function llenarCarteleraMain(cartelera) {
     //limpiar el main div
     divCartelera.innerHTML = "";
+    console.log(cartelera);
     cartelera.forEach((funcion) => {
         //Creo la etiqueta div(card) dentro de mi main #divCartelera
         const cardPelicula = document.createElement("div");
@@ -78,7 +91,7 @@ function llenarCarteleraMain(cartelera) {
                         <span class="d-block">Entrada General</span>
                         <span class="">$${funcion.precio}</span>                        
                     </div>
-                    <button type="button" class="btn btn-success btn-sm" id="funcion-${funcion.id}-${funcion.dia}" value="${funcion.id}">Comprar</button>
+                    <button type="button" class="btn btn-comprar btn-sm" id="funcion-${funcion.id}-${funcion.dia}" value="${funcion.id}">Comprar</button>
                 </div>`;
         divCartelera.appendChild(cardPelicula);
         const btnPelicula = document.getElementById(`funcion-${funcion.id}-${funcion.dia}`);
@@ -99,6 +112,13 @@ function llenarCarteleraMain(cartelera) {
 /* recuperarCarrito(); */
 verificarStorage();
 agregarBotoneraSemana();
-llenarCarteleraMain(carteleraPrincipal);
+/* cargarCartelera(); */
+const cargarStock = async () => {
+    stockCartelera = await cargarCartelera()
+    llenarCarteleraMain( await stockCartelera);
+};
+cargarStock();
+
+
 
 

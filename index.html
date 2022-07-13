@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cine Mi Ciudad</title>
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
 </head>
@@ -33,9 +32,7 @@
                 </form>
 
                 <div class="text-end">
-                    <button type="button" class="btn btn-outline-light me-2">Iniciar Session</button>
-                    <button type="button" class="btn btn-outline-light me-2">Registrarse</button>
-                    <button type="button" class="btn btn-outline-light btn-sm" data-bs-toggle="modal"
+                    <button type="button" class="btn btn-comprar" data-bs-toggle="modal"
                         data-bs-target="#exampleModal"><img src="./img/carrito.ico" id="carritoDeCompras" alt="Carrito de Compras" width="26">
                         <span id="contadorCarrito"></span></button>
                 </div>
@@ -81,15 +78,9 @@
         </div>
         <div class="container d-flex flex-wrap align-items-center justify-content-around align-self-stretch  p-3 text-white" id="cartelera">
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0" id="botoneraSemana">
-                <button type="button" class="btn-success btn-sm text-black" id="cargarMainCartelera">Cartelera</button>
+                <button type="button" class=" btn btn-comprar" id="cargarMainCartelera">Cartelera</button>
                 
             </ul>
-            <!-- <div class="d-flex justify-content-between">
-                <div class="" id="botoneraSemana">
-                    <button type="button" class="btn-outline-light btn-sm text-black"
-                        id="cargarMainCartelera">Cartelera</button>
-                </div>
-            </div> -->
             <form class="col-12 col-lg-auto mb-3 mb-lg-0 " role="search">
                 <input type="search" class="form-control form-control-dark text-black "
                     placeholder="Ingrese su Busqueda" aria-label="Search" id="buscador">
@@ -97,46 +88,18 @@
 
         </div>
         <div class="container" id="divCartelera">
-            <!-- <div class="secondary-navbar bg-dark text-white sticky-top">
-                        <div class="d-flex justify-content-between">
-                            <h2>Cartelera</h2>
-                            <div class="btn-group btn-group-nav">
-                                <button type="button" class="btn btn-outline-light">Hoy</button>
-                                <button type="button" class="btn btn-outline-light">Lunes</button>
-                                <button type="button" class="btn btn-outline-light">Martes</button>
-                                <button type="button" class="btn btn-outline-light">Miercoles</button>
-                                <button type="button" class="btn btn-outline-light">Viernes</button>
-                                <button type="button" class="btn btn-outline-light">Sabado</button>
-                                <button type="button" class="btn btn-outline-light">Domingo</button>
-                            </div>
-                        </div>
-                    </div> -->
-            <!-- Card -->
-            <!-- <div class="card producto m-3 bg-secondary bg-opacity-75 text-white">
-                        <div class="align-items-center text-center">
-                            <h4 class="p-3">Ex-Machine</h4>
-                            <img src="./img/exmachine.jpg" alt="Remera Personalizada" class="rounded pt-2" width="228">
-                            
-                            <div class="mt-3 info">
-                                <span class="d-block">Lunes</span>
-                                <span class="d-block">Horario - 20:00 Hs</span>
-                            </div>
-                            <div class="precio m-2">
-                                <span class="d-block">Entrada General</span>
-                                <span>$300</span>
-                            </div>
-                        </div>-->
+            
         </div>
         <!-- Modal Carrito de Compra -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
+                <div class="modal-content bg-dark">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Carrito de Compras</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <h5 class="modal-title text-white" id="exampleModalLabel">Carrito de Compras</h5>
+                        <button type="button" class="btn-close text-white" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <table class="table  table-striped"  id="tablaCarrito">
+                        <table class="table table-striped text-white"  id="tablaCarrito">
                             <thead>
                                 <tr>
                                     <th scope="col">Dia</th>
@@ -147,14 +110,13 @@
                                     <th scope="col"></th>
                                 </tr>
                             </thead>
-                            <tbody id="tablaCarrito" class="bg-dark">
+                            <tbody id="tablaCarrito">
                                 
                             </tbody>
                         </table>
                         <div class="d-flex flex-row-reverse">
                             <span type="button" class="btn btn-dark disabled" id="precioTotal"></span>
                         </div>
-
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
@@ -243,10 +205,6 @@
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
-    <script src="./js/clases/Pelicula.js"></script>
-    <script src="./js/clases/Funcion.js"></script>
-    <script src="./js/clases/Producto.js"></script>
-    <script src="./js/main.js"></script>
     <script src="./js/dom.js"></script>
     <script src="./js/carrito.js"></script>
 </body>

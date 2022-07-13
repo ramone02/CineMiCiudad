@@ -1,0 +1,192 @@
+[
+    {
+        "id": 1,
+        "dia": "lunes",
+        "hora": "18:00",
+        "pelicula": {
+            "id": 1,
+            "nombre": "Pulp Fiction",
+            "genero": "Drama Policiaco",
+            "duracion": 140,
+            "clasificacion": "2D",
+            "fechaEstreno": "27/03/2022",
+            "imagen": "../img/pulpfiction.jpg",
+            "descripcion": "descripcion"
+        },
+        "precio": 300,
+        "promocion": false,
+        "disponibilidad": true,
+        "estreno": false
+    },
+    {
+        "id": 2,
+        "dia": "lunes",
+        "hora": "20:00",
+        "pelicula": {
+            "id": 2,
+            "nombre": "Fight Club",
+            "genero": "Suspenso/Drama",
+            "duracion": 120,
+            "clasificacion": "2D",
+            "fechaEstreno": "03/02/2022",
+            "imagen": "../img/fightclub.jpeg",
+            "descripcion": "descripcion"
+        },
+        "precio": 300,
+        "promocion": false,
+        "disponibilidad": true,
+        "estreno": false
+    },
+    {
+        "id": 3,
+        "dia": "martes",
+        "hora": "20:00",
+        "pelicula": {
+            "id": 2,
+            "nombre": "Fight Club",
+            "genero": "Suspenso/Drama",
+            "duracion": 120,
+            "clasificacion": "2D",
+            "fechaEstreno": "03/02/2022",
+            "imagen": "../img/fightclub.jpeg",
+            "descripcion": "descripcion"
+        },
+        "precio": 300,
+        "promocion": false,
+        "disponibilidad": true,
+        "estreno": false
+    },
+    {
+        "id": 4,
+        "dia": "miercoles",
+        "hora": "22:00",
+        "pelicula": {
+            "id": 3,
+            "nombre": "Ex-Machina",
+            "genero": "Ficcion",
+            "duracion": 90,
+            "clasificacion": "3D",
+            "fechaEstreno": "15/01/2022",
+            "imagen": "../img/exmachine.jpg",
+            "descripcion": "descripcion"
+        },
+        "precio": 300,
+        "promocion": false,
+        "disponibilidad": true,
+        "estreno": false
+    },
+    {
+        "id": 5,
+        "dia": "jueves",
+        "hora": "18:00",
+        "pelicula": {
+            "id": 6,
+            "nombre": "Jujutsu Kaisen 0",
+            "genero": "Anime",
+            "duracion": 100,
+            "clasificacion": "3D",
+            "fechaEstreno": "12/02/2022",
+            "imagen": "../img/jujutsu0.jpeg",
+            "descripcion": "descripcion"
+        },
+        "precio": 300,
+        "promocion": false,
+        "disponibilidad": false,
+        "estreno": false
+    },
+    {
+        "id": 6,
+        "dia": "jueves",
+        "hora": "18:00",
+        "pelicula": {
+            "id": 4,
+            "nombre": "Interestellar",
+            "genero": "Ficcion",
+            "duracion": 120,
+            "clasificacion": "2D",
+            "fechaEstreno": "12/02/2022",
+            "imagen": "../img/interestellar.jpg",
+            "descripcion": "descripcion"
+        },
+        "precio": 300,
+        "promocion": false,
+        "disponibilidad": false,
+        "estreno": false
+    },
+    {
+        "id": 7,
+        "dia": "viernes",
+        "hora": "20:00",
+        "pelicula": {
+            "id": 1,
+            "nombre": "Pulp Fiction",
+            "genero": "Drama Policiaco",
+            "duracion": 140,
+            "clasificacion": "2D",
+            "fechaEstreno": "27/03/2022",
+            "imagen": "../img/pulpfiction.jpg",
+            "descripcion": "descripcion"
+        },
+        "precio": 300,
+        "promocion": false,
+        "disponibilidad": false,
+        "estreno": false
+    },
+    {
+        "id": 8,
+        "dia": "viernes",
+        "hora": "18:00",
+        "pelicula": {
+            "id": 5,
+            "nombre": "CBGB",
+            "genero": "Ficcion",
+            "duracion": 120,
+            "clasificacion": "2D",
+            "fechaEstreno": "12/02/2022",
+            "imagen": "../img/cbgb.jpg",
+            "descripcion": "descripcion"
+        },
+        "precio": 300,
+        "promocion": false,
+        "disponibilidad": false,
+        "estreno": false
+    },
+    {
+        "id": 9,
+        "dia": "sabado",
+        "hora": "22:00",
+        "pelicula": {
+            "id": 2,
+            "nombre": "Fight Club",
+            "genero": "Suspenso/Drama",
+            "duracion": 120,
+            "clasificacion": "2D",
+            "fechaEstreno": "03/02/2022",
+            "imagen": "../img/fightclub.jpeg",
+            "descripcion": "descripcion"
+        },
+        "precio": 300,
+        "promocion": false,
+        "disponibilidad": true,
+        "estreno": false
+    },
+    {
+        "id": 10,
+        "dia": "domingo",
+        "hora": "18:00",
+        "pelicula": {
+            "id": 3,
+            "nombre": "Ex-Machina",
+            "genero": "Ficcion",
+            "duracion": 90,
+            "clasificacion": "3D",
+            "fechaEstreno": "15/01/2022",
+            "imagen": "../img/exmachine.jpg",
+            "descripcion": "descripcion"
+        },
+        "precio": 300,
+        "promocion": false,
+        "disponibilidad": false,
+        "estreno": false
+    }
+]

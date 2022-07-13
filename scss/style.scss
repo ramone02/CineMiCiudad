@@ -1,0 +1,58 @@
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+@import "variables";
+@import "mixin"; 
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;    
+}
+
+header, body {
+    background: $terciary;
+    background: radial-gradient(circle, rgba(46,4,71,1) 0%, rgba(0,0,0,1) 100%);
+
+}
+.card{
+    background: $primary;
+    opacity: 25;
+}
+
+.btn {
+    &.btn-cta {
+        @include btn($terciary, #fff, "true");
+    &:hover {
+        @include btn($primary, $terciary, "true");
+        box-shadow: $box-shadow;
+        }
+    }    
+}
+
+.btn-comprar{
+    background-color: $secondary;
+    color: #fff;
+    text-align: center;
+    margin-top: 2px;
+    margin-bottom: 1px;
+}
+
+
+
+
+ul{
+    list-style: none;
+}
+#cartelera{
+    
+    overflow-x: hidden;
+
+}
+
+#botoneraSemana{
+    gap: 5px;   
+}
+#divCartelera, #divEstrenos{    
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+    grid-template-rows: repeat(auto-fill, minmax(33rem, 1fr));
+    gap: 25px;
+}
