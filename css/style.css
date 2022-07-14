@@ -11978,6 +11978,94 @@ header, body {
 .card {
   background: #5d5179;
   opacity: 25;
+  position: relative;
+  height: 500px;
+  border-radius: 10px;
+}
+
+.card .face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  border-radius: 10px;
+  overflow: hidden;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.card .front {
+  -webkit-transform: perspective(600px) rotateY(0deg);
+          transform: perspective(600px) rotateY(0deg);
+  -webkit-box-shadow: 0 5px 10px #000;
+          box-shadow: 0 5px 10px #000;
+}
+
+.card .front img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.card .front h3, .card .front .h3 {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 45px;
+  line-height: 45px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.4);
+  text-align: center;
+}
+
+.card .back {
+  -webkit-transform: perspective(600px) rotateY(180deg);
+          transform: perspective(600px) rotateY(180deg);
+  background: #2e0447;
+  padding: 15px;
+  color: #f3f3f3;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  text-align: center;
+  -webkit-box-shadow: 0 5px 10px #000;
+          box-shadow: 0 5px 10px #000;
+}
+
+.card .back .link {
+  border-top: solid 1px #f3f3f3;
+  height: 50px;
+  line-height: 50px;
+}
+
+.card .back h3, .card .back .h3 {
+  font-size: 30px;
+  margin-top: 20px;
+  letter-spacing: 2px;
+}
+
+.card .back .p {
+  letter-spacing: 1px;
+}
+
+.card:hover .front {
+  -webkit-transform: perspective(600px) rotateY(180deg);
+          transform: perspective(600px) rotateY(180deg);
+}
+
+.card:hover .back {
+  -webkit-transform: perspective(600px) rotateY(360deg);
+          transform: perspective(600px) rotateY(360deg);
 }
 
 .btn.btn-cta {
@@ -12037,8 +12125,8 @@ ul {
   display: grid;
   -ms-grid-columns: (minmax(18rem, 1fr))[auto-fill];
       grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
-  -ms-grid-rows: (minmax(33rem, 1fr))[auto-fill];
-      grid-template-rows: repeat(auto-fill, minmax(33rem, 1fr));
+  -ms-grid-rows: ()[minmax];
+      grid-template-rows: repeat(minmax(33rem, 1fr));
   gap: 25px;
 }
 /*# sourceMappingURL=style.css.map */

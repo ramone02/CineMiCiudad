@@ -7,6 +7,9 @@ const tablaCarrito = document.getElementById("tablaCarrito");
 const contadorCarrito = document.getElementById("contadorCarrito");
 const precioTotal = document.getElementById("precioTotal");
 const carritoDeCompra = document.getElementById("carritoDeCompras");
+const btnPagar = document.getElementById("btn-pagar");
+
+
 
 const mostrarCarritoCompras = () => {
     tablaCarrito.innerHTML = "";
@@ -19,7 +22,7 @@ const mostrarCarritoCompras = () => {
                                 <td>${producto.precio}</td>
                                 <td><p class="w-50" id="cantidadEntrada" value="${producto.cantidad}">${producto.cantidad}</p></td>
                                 <td><button class="btn btn-danger" id="btnEliminarProducto${producto.id}" onclick="borrarProductoCarrito(${producto.id})">X</button></td>
-                                `;        
+                                `;
         tablaCarrito.appendChild(filaCarrito);
     })
 }
@@ -47,7 +50,7 @@ function borrarProductoCarrito(idProducto) {
                 mostrarCarritoCompras();
             } else {
                 const btnEliminarProducto = document.getElementById(`btnEliminarProducto${idProducto}`);
-                carrito.splice(index, 1);                
+                carrito.splice(index, 1);
                 btnEliminarProducto.closest("tr").remove();
                 localStorage.setItem("carrito", JSON.stringify(carrito));
                 actualizarCarrito();
@@ -87,40 +90,6 @@ function agregarPeliculaCarrito(idFuncion) {
     localStorage.setItem("carrito", JSON.stringify(carrito));
     actualizarCarrito();
     mostrarCarritoCompras();
-
-    /* TODAS LAS FORMAS QUE INTENTE HACER QUE FUNCIONARA D: */
-
-    /* const index = carrito?.id.indexOf(idFuncion); */
-    /* console.log(`indice producto a agregar ${index}`);
-    if (index != -1) {
-        carrito[index].cantidad++;
-    } else {
-        const entradaCarrito = {id, pelicula:{nombre}, dia, precio, promocion, cantidad: 1} = entrada;
-        carrito.push({ id: idFuncion, pelicula: entrada.pelicula.nombre, dia: entrada.dia, hora: entrada.hora, precio: entrada.precio, promocion: entrada.promocion, cantidad: 1 });
-    } */
-    
-    //Primero pregunto si existe en mi carrito una "entrada/funcion" con ese id, si existe le sumo uno a cantidad si no pusheo "la entrada/funcion" al carrito
-    /* carrito.some((entrada) => entrada.id === parseInt(idFuncion)) 
-        ? carrito.find((entrada) => entrada.id === parseInt(idFuncion)).cantidad++
-        : carrito.push({ id: idFuncion, pelicula: entrada.pelicula.nombre, dia: entrada.dia, hora: entrada.hora, precio: entrada.precio, promocion: entrada.promocion, cantidad: 1}); */
-    //local Storage
-    /* localStorage.setItem("carrito", JSON.stringify(carrito)); */
-
-    // traigo los datos de la funcion de la entrada a agregar
-    /* const entrada = carteleraPrincipal.find((funcion) => funcion.id === idFuncion); */
-    // busco dentro del carrito si ya existe una pelicula con ese id
-    /* const productoEnCarro = carrito.find((producto) => producto.id === idFuncion);
-
-    productoEnCarro?.id && productoEnCarro.cantidad++ || carrito.push({ id: idFuncion, pelicula: entrada.pelicula.nombre, dia: entrada.dia, hora: entrada.hora, precio: entrada.precio, promocion: entrada.promocion, cantidad: 1, total: 0 }); */
-    /* if (productoEnCarro.id) {
-        productoEnCarro.cantidad++;
-    }else{
-        carrito.push({ id: idFuncion, pelicula: entrada.pelicula.nombre, dia: entrada.dia, hora: entrada.hora, precio: entrada.precio, promocion: entrada.promocion, cantidad: 1, total: 0 });
-    } */
-    /* carrito.push({id: idFuncion, pelicula: entrada.pelicula.nombre, dia: entrada.dia, hora: entrada.hora, precio: entrada.precio, promocion: entrada.promocion, cantidad: 1, total:0 }); */
-    /* carrito.forEach((entrada)=>{
-        localStorage.setItem(`item${index}`, JSON.stringify(entrada));
-    }) */
 }
 
 /* Actualizar Carrito */
@@ -130,6 +99,35 @@ function actualizarCarrito() {
     //sumo el precio total
     precioTotal.innerText = `Total: $ ${carrito.reduce((acc, e) => acc + e.precio * e.cantidad, 0)}`;
 }
+/* Pagar */
+
+
+btnPagar.onclick = () => {
+    if (carrito.length === 0) {
+        Swal.fire({
+            title: 'Error!',
+            titleText: 'Error, asegurese de ingresar Peliculas al Carrito',
+            icon: 'error',
+            confirmButtonColor: '#4f759b'
+        })
+    } else {
+        localStorage.clear();
+        actualizarCarrito();
+        precioTotal.innerText = 0;
+        tablaCarrito.innerHTML = "";
+        Swal.fire({
+            title: 'Exito!',
+            titleText: 'Su compra ha sido realizada, pronto le llegara el QR a su Mail',
+            icon: 'success',
+            iconColor: '#198754',
+            confirmButtonColor: '#4f759b'
+        }).then(() => {
+            setTimeout(() => {
+                location.reload(true);
+            }, 3000);
+        });
+    }
+};
 
 verificarStorage();
 localStorage.getItem('carrito') && (carrito = JSON.parse(localStorage.getItem('carrito')));

@@ -5,7 +5,6 @@ const divCartelera = document.getElementById("divCartelera");
 const buscador = document.getElementById("buscador");
 const btnMain = document.getElementById("cargarMainCartelera");
 
-
 /* const getPrecioRandom = () => {
     return Math.floor(Math.random() * (500 - 1000) + 1000);
 } */
@@ -65,39 +64,34 @@ const cargarCartelera = async ()=> {
     }
 }
 
-
-
 /*  Recupero mi array del carrito que fui "guardando" en Local Storage  */
 const recuperarStorage = ((clave) => JSON.parse(localStorage.getItem(clave)));
 const verificarStorage = () => recuperarStorage() && (carrito= recuperarStorage());
-
 
 /* funcion principal donde inyecto las cards en mi "cartelera principal" - agreggo clases y botones de compra por cada card*/
 function llenarCarteleraMain(cartelera) {
     //limpiar el main div
     divCartelera.innerHTML = "";
-    console.log(cartelera);
     cartelera.forEach((funcion) => {
         //Creo la etiqueta div(card) dentro de mi main #divCartelera
         const cardPelicula = document.createElement("div");
         //Le añado las clases correspondientes a mi "div card"
-        cardPelicula.className = "card producto m-3  bg-opacity-50 text-white";
+        cardPelicula.className = "card";
         //E inserto la informacion de cada pelicula del array Cartelera
-        cardPelicula.innerHTML = `<div class="align-items-center text-center">
-                <h4 class="pt-2">${funcion.pelicula.nombre}</h4>
-                    <img src="${funcion.pelicula.imagen}" alt="Banner" class="rounded pt-2" width="228">
-                    <!-- Informacion -->
-                    <div class="mt-2 ps-4 text-start info">
-                        <span class="d-block">${funcion.dia}</span>
-                        <span class="d-block">Horario - ${funcion.hora} Hs</span>
-                    </div>
-                    <!-- Precio -->
-                    <div class="precio mt-2 ps-4 text-start">
-                        <span class="d-block">Entrada General</span>
-                        <span class="">$${funcion.precio}</span>                        
-                    </div>
-                    <button type="button" class="btn btn-comprar btn-sm" id="funcion-${funcion.id}-${funcion.dia}" value="${funcion.id}">Comprar</button>
-                </div>`;
+        cardPelicula.innerHTML = `<div class="face front">
+                                    <img src="${funcion.pelicula.imagen}" alt="Banner">
+                                    <h3>${funcion.dia} - ${funcion.hora}</h3>
+                                </div>
+                                <div class="face back">
+                                    <h3>${funcion.pelicula.nombre}</h3>
+                                    <p>${funcion.dia} - ${funcion.hora}</p>
+                                    <p>${funcion.pelicula.resumen}</p>
+                                    <span>Entrada General</span>
+                                    <span>$${funcion.precio}</span>
+                                    <button type="button" class="btn btn-comprar btn-sm" id="funcion-${funcion.id}-${funcion.dia}" value="${funcion.id}">Comprar</button>
+                                    
+                                </div>
+        `;
         divCartelera.appendChild(cardPelicula);
         const btnPelicula = document.getElementById(`funcion-${funcion.id}-${funcion.dia}`);
         btnPelicula.onclick = (e) => {
@@ -115,7 +109,6 @@ function llenarCarteleraMain(cartelera) {
 }
 
 /* Invocaciones funcionales basicas de la aplicacion */
-
 /* recuperarCarrito(); */
 verificarStorage();
 agregarBotoneraSemana();

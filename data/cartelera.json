@@ -11,7 +11,7 @@
             "clasificacion": "2D",
             "fechaEstreno": "27/03/2022",
             "imagen": "../img/pulpfiction.jpg",
-            "descripcion": "descripcion"
+            "resumen": "La vida de un boxeador, dos sicarios, la esposa de un gánster y dos bandidos se entrelaza en una historia de violencia y redención."
         },
         "precio": 700,
         "promocion": false,
@@ -30,7 +30,7 @@
             "clasificacion": "2D",
             "fechaEstreno": "03/02/2022",
             "imagen": "../img/fightclub.jpeg",
-            "descripcion": "descripcion"
+            "resumen": "Un empleado de oficina insomne, harto de su vida, se cruza con un vendedor peculiar. Ambos crean un club de lucha clandestino como forma de terapia y, poco a poco, la organización crece y sus objetivos toman otro rumbo."
         },
         "precio": 850,
         "promocion": false,
@@ -49,7 +49,7 @@
             "clasificacion": "2D",
             "fechaEstreno": "03/02/2022",
             "imagen": "../img/fightclub.jpeg",
-            "descripcion": "descripcion"
+            "resumen": "Un empleado de oficina insomne, harto de su vida, se cruza con un vendedor peculiar. Ambos crean un club de lucha clandestino como forma de terapia y, poco a poco, la organización crece y sus objetivos toman otro rumbo."
         },
         "precio": 750,
         "promocion": false,
@@ -68,7 +68,7 @@
             "clasificacion": "3D",
             "fechaEstreno": "15/01/2022",
             "imagen": "../img/exmachine.jpg",
-            "descripcion": "descripcion"
+            "resumen": "Caleb Smith es un programador que trabaja para Bluebook, el motor de búsqueda más popular del mundo. En un concurso, gana la oportunidad de visitar al excéntrico presidente ejecutivo de la compañía, Nathan Bateman, en su aislado centro de investigación, en las montañas de Alaska."
         },
         "precio": 690,
         "promocion": false,
@@ -87,7 +87,7 @@
             "clasificacion": "3D",
             "fechaEstreno": "12/02/2022",
             "imagen": "../img/jujutsu0.jpeg",
-            "descripcion": "descripcion"
+            "resumen": "Yuka Okkotsu obtiene el control de una maldición extremadamente poderosa y acaba inscrito en el Colegio Técnico de Magia Metropolitana de Tokio, donde otros hechiceros deciden ayudarlo a controlar y vigilar su poder."
         },
         "precio": 850,
         "promocion": false,
@@ -106,7 +106,7 @@
             "clasificacion": "2D",
             "fechaEstreno": "12/02/2022",
             "imagen": "../img/interestellar.jpg",
-            "descripcion": "descripcion"
+            "resumen": "Un grupo de científicos y exploradores, encabezados por Cooper, se embarcan en un viaje espacial para encontrar un lugar con las condiciones necesarias para reemplazar a la Tierra y comenzar una nueva vida allí."
         },
         "precio": 700,
         "promocion": false,
@@ -125,7 +125,7 @@
             "clasificacion": "2D",
             "fechaEstreno": "27/03/2022",
             "imagen": "../img/pulpfiction.jpg",
-            "descripcion": "descripcion"
+            "resumen": "La vida de un boxeador, dos sicarios, la esposa de un gánster y dos bandidos se entrelaza en una historia de violencia y redención."
         },
         "precio": 750,
         "promocion": false,
@@ -144,7 +144,7 @@
             "clasificacion": "2D",
             "fechaEstreno": "12/02/2022",
             "imagen": "../img/cbgb.jpg",
-            "descripcion": "descripcion"
+            "resumen": "A pesar de ser concebido como un lugar de música campirana y bluegrass, el club de NY de Hilly Kristal se convierte en el lugar de nacimiento de la música punk y clandestina, y ayuda a lanzar las carreras de Blondie, the Ramones y the Police."
         },
         "precio": 800,
         "promocion": false,
@@ -163,7 +163,7 @@
             "clasificacion": "2D",
             "fechaEstreno": "03/02/2022",
             "imagen": "../img/fightclub.jpeg",
-            "descripcion": "descripcion"
+            "resumen": "Un empleado de oficina insomne, harto de su vida, se cruza con un vendedor peculiar. Ambos crean un club de lucha clandestino como forma de terapia y, poco a poco, la organización crece y sus objetivos toman otro rumbo."
         },
         "precio": 700,
         "promocion": false,
@@ -182,7 +182,7 @@
             "clasificacion": "3D",
             "fechaEstreno": "15/01/2022",
             "imagen": "../img/exmachine.jpg",
-            "descripcion": "descripcion"
+            "resumen": "Caleb Smith es un programador que trabaja para Bluebook, el motor de búsqueda más popular del mundo. En un concurso, gana la oportunidad de visitar al excéntrico presidente ejecutivo de la compañía, Nathan Bateman, en su aislado centro de investigación, en las montañas de Alaska."
         },
         "precio": 760,
         "promocion": false,
