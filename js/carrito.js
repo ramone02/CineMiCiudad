@@ -17,7 +17,7 @@ const mostrarCarritoCompras = () => {
                                 <td>${producto.hora}</td>
                                 <td>${producto.pelicula}</td>
                                 <td>${producto.precio}</td>
-                                <td><input class="w-50" id="cantidadEntrada" type="number" value="${producto.cantidad}" min="1" max="5"></input></td>
+                                <td><p class="w-50" id="cantidadEntrada" value="${producto.cantidad}">${producto.cantidad}</p></td>
                                 <td><button class="btn btn-danger" id="btnEliminarProducto${producto.id}" onclick="borrarProductoCarrito(${producto.id})">X</button></td>
                                 `;        
         tablaCarrito.appendChild(filaCarrito);
@@ -28,12 +28,14 @@ const mostrarCarritoCompras = () => {
 /* Quitar producto del Carrito */
 function borrarProductoCarrito(idProducto) {
     Swal.fire({
-        title: "Esta seguro de Eliminar la Entrada?",
+        title: 'Esta seguro de Eliminar la Entrada?',
+        titleText: 'Usted perdera la reserva de esta Entrada',
         icon: 'warning',
-        text: "Usted perdera la reserva de esta Entrada",
         showCancelButton: true,
         confirmButtonText: 'Si, Eliminala',
-        cancelButtonText: 'No, Cancelar'
+        confirmButtonColor: '#4f759b',
+        cancelButtonText: 'No, Cancelar',
+        cancelButtonColor: '#d33'
     }).then((result) => {
         if (result.isConfirmed) {
             const entrada = carrito.find((producto) => producto.id === parseInt(idProducto));
@@ -53,14 +55,18 @@ function borrarProductoCarrito(idProducto) {
             }
             Swal.fire({
                 title: 'Eliminada!',
-                text: 'Usted ha Eliminado la Entrada del Carrito',
-                icon: 'success'
+                titleText: 'Usted ha Eliminado la Entrada del Carrito',
+                icon: 'success',
+                iconColor: '#198754',
+                confirmButtonColor: '#4f759b'
             });
         } else {
             Swal.fire({
                 title: 'Cancelado!',
-                text: 'Su Entrada no ha sido borrada',
-                icon: 'error'
+                titleText: 'Su Entrada no ha sido borrada',
+                icon: 'error',
+                iconColor: '#d33',
+                confirmButtonColor: '#4f759b'
             });
         }
     });

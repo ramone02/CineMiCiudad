@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "dia": "lunes",
+        "dia": "Lunes",
         "hora": "18:00",
         "pelicula": {
             "id": 1,
@@ -13,14 +13,14 @@
             "imagen": "../img/pulpfiction.jpg",
             "descripcion": "descripcion"
         },
-        "precio": 300,
+        "precio": 700,
         "promocion": false,
         "disponibilidad": true,
         "estreno": false
     },
     {
         "id": 2,
-        "dia": "lunes",
+        "dia": "Lunes",
         "hora": "20:00",
         "pelicula": {
             "id": 2,
@@ -32,14 +32,14 @@
             "imagen": "../img/fightclub.jpeg",
             "descripcion": "descripcion"
         },
-        "precio": 300,
+        "precio": 850,
         "promocion": false,
         "disponibilidad": true,
         "estreno": false
     },
     {
         "id": 3,
-        "dia": "martes",
+        "dia": "Martes",
         "hora": "20:00",
         "pelicula": {
             "id": 2,
@@ -51,14 +51,14 @@
             "imagen": "../img/fightclub.jpeg",
             "descripcion": "descripcion"
         },
-        "precio": 300,
+        "precio": 750,
         "promocion": false,
         "disponibilidad": true,
         "estreno": false
     },
     {
         "id": 4,
-        "dia": "miercoles",
+        "dia": "Miercoles",
         "hora": "22:00",
         "pelicula": {
             "id": 3,
@@ -70,14 +70,14 @@
             "imagen": "../img/exmachine.jpg",
             "descripcion": "descripcion"
         },
-        "precio": 300,
+        "precio": 690,
         "promocion": false,
         "disponibilidad": true,
         "estreno": false
     },
     {
         "id": 5,
-        "dia": "jueves",
+        "dia": "Jueves",
         "hora": "18:00",
         "pelicula": {
             "id": 6,
@@ -89,14 +89,14 @@
             "imagen": "../img/jujutsu0.jpeg",
             "descripcion": "descripcion"
         },
-        "precio": 300,
+        "precio": 850,
         "promocion": false,
         "disponibilidad": false,
         "estreno": false
     },
     {
         "id": 6,
-        "dia": "jueves",
+        "dia": "Jueves",
         "hora": "18:00",
         "pelicula": {
             "id": 4,
@@ -108,14 +108,14 @@
             "imagen": "../img/interestellar.jpg",
             "descripcion": "descripcion"
         },
-        "precio": 300,
+        "precio": 700,
         "promocion": false,
         "disponibilidad": false,
         "estreno": false
     },
     {
         "id": 7,
-        "dia": "viernes",
+        "dia": "Viernes",
         "hora": "20:00",
         "pelicula": {
             "id": 1,
@@ -127,14 +127,14 @@
             "imagen": "../img/pulpfiction.jpg",
             "descripcion": "descripcion"
         },
-        "precio": 300,
+        "precio": 750,
         "promocion": false,
         "disponibilidad": false,
         "estreno": false
     },
     {
         "id": 8,
-        "dia": "viernes",
+        "dia": "Viernes",
         "hora": "18:00",
         "pelicula": {
             "id": 5,
@@ -146,14 +146,14 @@
             "imagen": "../img/cbgb.jpg",
             "descripcion": "descripcion"
         },
-        "precio": 300,
+        "precio": 800,
         "promocion": false,
         "disponibilidad": false,
         "estreno": false
     },
     {
         "id": 9,
-        "dia": "sabado",
+        "dia": "Sabado",
         "hora": "22:00",
         "pelicula": {
             "id": 2,
@@ -165,14 +165,14 @@
             "imagen": "../img/fightclub.jpeg",
             "descripcion": "descripcion"
         },
-        "precio": 300,
+        "precio": 700,
         "promocion": false,
         "disponibilidad": true,
         "estreno": false
     },
     {
         "id": 10,
-        "dia": "domingo",
+        "dia": "Domingo",
         "hora": "18:00",
         "pelicula": {
             "id": 3,
@@ -184,7 +184,7 @@
             "imagen": "../img/exmachine.jpg",
             "descripcion": "descripcion"
         },
-        "precio": 300,
+        "precio": 760,
         "promocion": false,
         "disponibilidad": false,
         "estreno": false

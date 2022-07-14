@@ -5,6 +5,11 @@ const divCartelera = document.getElementById("divCartelera");
 const buscador = document.getElementById("buscador");
 const btnMain = document.getElementById("cargarMainCartelera");
 
+
+/* const getPrecioRandom = () => {
+    return Math.floor(Math.random() * (500 - 1000) + 1000);
+} */
+
 /* aplico filtrado de busqueda por DIA - NOMBRE PELICULA Y HORA */
 buscador.addEventListener("input", (e) => {
     let input = e.target.value;
@@ -17,7 +22,7 @@ function agregarBotoneraSemana() {
     //Traigo mi elemento donde voy a crear los botones
     const divBotoneraSemana = document.querySelector("#botoneraSemana");
     //array de dias
-    const dias = ["domingo", "lunes", "martes", "miercoles", "jueves", "viernes", "sabado"];
+    const dias = ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"];
     //Voy a agregar un boton por cada día - En un futuro sera boton "Hoy", segun la fecha que entres(dia)  
     dias.forEach((dia) => {
         //Crear siempre los elementos dentro del forEach - Afuera no funciona, imprime/usa siempre el ultimo
@@ -98,10 +103,12 @@ function llenarCarteleraMain(cartelera) {
         btnPelicula.onclick = (e) => {
             agregarPeliculaCarrito(parseInt(e.target.value));
             Swal.fire({
-                toast: true,
+                position: "top-end",
                 icon: 'success',
+                iconColor: '#198754',
+                confirmButtonColor: '#4f759b',
                 title: "Entrada Agregada con exito",
-                position: "top-end"
+                toast: true             
             });
         }
     })
