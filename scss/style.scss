@@ -15,7 +15,7 @@ header, body {
 
 }
 .card{
-    background: $primary;
+    background: $terciary;
     opacity: 25;
     position: relative;
     height: 500px;
@@ -57,7 +57,7 @@ header, body {
 
 .card .back{
     transform: perspective(600px) rotateY(180deg);
-    background: $terciary;
+    background: $primary;
     padding: 15px;
     color: #f3f3f3;
     display: flex;

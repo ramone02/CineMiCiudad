@@ -11976,7 +11976,7 @@ header, body {
 }
 
 .card {
-  background: #5d5179;
+  background: #2e0447;
   opacity: 25;
   position: relative;
   height: 500px;
@@ -12024,7 +12024,7 @@ header, body {
 .card .back {
   -webkit-transform: perspective(600px) rotateY(180deg);
           transform: perspective(600px) rotateY(180deg);
-  background: #2e0447;
+  background: #5d5179;
   padding: 15px;
   color: #f3f3f3;
   display: -webkit-box;

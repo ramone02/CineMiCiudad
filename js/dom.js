@@ -97,12 +97,15 @@ function llenarCarteleraMain(cartelera) {
         btnPelicula.onclick = (e) => {
             agregarPeliculaCarrito(parseInt(e.target.value));
             Swal.fire({
-                position: "top-end",
+                toast: true,
+                position: 'top-end',
                 icon: 'success',
                 iconColor: '#198754',
                 confirmButtonColor: '#4f759b',
                 title: "Entrada Agregada con exito",
-                toast: true             
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true             
             });
         }
     })

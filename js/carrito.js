@@ -124,7 +124,7 @@ btnPagar.onclick = () => {
         }).then(() => {
             setTimeout(() => {
                 location.reload(true);
-            }, 3000);
+            }, 1000);
         });
     }
 };
