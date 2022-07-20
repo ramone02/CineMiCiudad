@@ -11982,6 +11982,7 @@ header, body {
   height: 500px;
   border-radius: 10px;
 }
+<<<<<<< HEAD
 
 .card .face {
   position: absolute;
@@ -12130,3 +12131,11 @@ ul {
   gap: 25px;
 }
 /*# sourceMappingURL=style.css.map */
+=======
+#divCartelera, #divEstrenos{    
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+    grid-template-rows: repeat(auto-fill, minmax(33rem, 1fr));
+    gap: 25px;
+}
+>>>>>>> api/fetch

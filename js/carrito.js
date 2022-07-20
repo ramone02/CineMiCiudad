@@ -1,15 +1,16 @@
-/* Carrito */
-let total = 0;
-let carrito = [];
-
 /* ------------- Variables del Dom ----------------------- */
 const tablaCarrito = document.getElementById("tablaCarrito");
 const contadorCarrito = document.getElementById("contadorCarrito");
 const precioTotal = document.getElementById("precioTotal");
 const carritoDeCompra = document.getElementById("carritoDeCompras");
+
 const btnPagar = document.getElementById("btn-pagar");
 
 
+
+/* Carrito */
+let total = 0;
+let carrito = [];
 
 const mostrarCarritoCompras = () => {
     tablaCarrito.innerHTML = "";
@@ -99,8 +100,8 @@ function actualizarCarrito() {
     //sumo el precio total
     precioTotal.innerText = `Total: $ ${carrito.reduce((acc, e) => acc + e.precio * e.cantidad, 0)}`;
 }
-/* Pagar */
 
+/* Pagar */
 
 btnPagar.onclick = () => {
     if (carrito.length === 0) {
