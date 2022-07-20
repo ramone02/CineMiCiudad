@@ -6,8 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cine Mi Ciudad</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
 </head>
@@ -17,27 +19,22 @@
         <div class="container">
             <div class="d-flex flex-wrap align-items-center justify-content-evenly justify-content-lg-start">
                 <a href="./index.html" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-                    <img src="./img/logo2svg.svg" class="agitar" width="60" height="50" alt="logo">
+                    <img src="./img/logo.png" class="agitar" width="60" height="50" alt="logo">
                 </a>
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="index.html" class="nav-link px-2 text-white">Inicio</a></li>
+                    <li><a href="#" class="nav-link px-2 text-white">Inicio</a></li>
                     <li><a href="./cartelera.html" class="nav-link px-2 text-white">Estrenos</a></li>
                     <li><a href="#" class="nav-link px-2 text-white">Productos</a></li>
                     <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
                     <li><a href="#" class="nav-link px-2 text-white">About</a></li>
-                </ul>
-
+                </ul>    
                 <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
                     <input type="search" class="form-control form-control-dark text-black "
                         placeholder="Ingrese su Busqueda" aria-label="Search">
-                </form>
-
+                </form>    
                 <div class="text-end">
-                    <button type="button" class="btn btn-outline-light me-2">Iniciar Session</button>
-                    <button type="button" class="btn btn-outline-light me-2">Registrarse</button>
-                    <button type="button" class="btn btn-outline-light btn-sm" data-bs-toggle="modal"
-                        data-bs-target="#exampleModal"><img src="./img/carrito.ico" id="carritoDeCompras"
-                            alt="Carrito de Compras" width="26">
+                    <button type="button" class="btn btn-comprar" data-bs-toggle="modal" data-bs-target="#exampleModal"><img
+                            src="./img/carrito.ico" id="carritoDeCompras" alt="Carrito de Compras" width="26">
                         <span id="contadorCarrito"></span></button>
                 </div>
             </div>
@@ -86,48 +83,12 @@
                 <button type="button" class="btn-success btn-sm text-black" id="cargarMainCartelera">Cartelera</button>
 
             </ul>
-            <!-- <div class="d-flex justify-content-between">
-                <div class="" id="botoneraSemana">
-                    <button type="button" class="btn-outline-light btn-sm text-black"
-                        id="cargarMainCartelera">Cartelera</button>
-                </div>
-            </div> -->
             <form class="col-12 col-lg-auto mb-3 mb-lg-0 " role="search">
                 <input type="search" class="form-control form-control-dark text-black "
                     placeholder="Ingrese su Busqueda" aria-label="Search" id="buscador">
             </form>
-
         </div>
         <div class="container" id="divEstrenos">
-            <!-- <div class="secondary-navbar bg-dark text-white sticky-top">
-                        <div class="d-flex justify-content-between">
-                            <h2>Cartelera</h2>
-                            <div class="btn-group btn-group-nav">
-                                <button type="button" class="btn btn-outline-light">Hoy</button>
-                                <button type="button" class="btn btn-outline-light">Lunes</button>
-                                <button type="button" class="btn btn-outline-light">Martes</button>
-                                <button type="button" class="btn btn-outline-light">Miercoles</button>
-                                <button type="button" class="btn btn-outline-light">Viernes</button>
-                                <button type="button" class="btn btn-outline-light">Sabado</button>
-                                <button type="button" class="btn btn-outline-light">Domingo</button>
-                            </div>
-                        </div>
-                    </div> -->
-            <!-- Card -->
-            <!-- <div class="card producto m-3 bg-secondary bg-opacity-75 text-white">
-                        <div class="align-items-center text-center">
-                            <h4 class="p-3">Ex-Machine</h4>
-                            <img src="./img/exmachine.jpg" alt="Remera Personalizada" class="rounded pt-2" width="228">
-                            
-                            <div class="mt-3 info">
-                                <span class="d-block">Lunes</span>
-                                <span class="d-block">Horario - 20:00 Hs</span>
-                            </div>
-                            <div class="precio m-2">
-                                <span class="d-block">Entrada General</span>
-                                <span>$300</span>
-                            </div>
-                        </div>-->
         </div>
         <!-- Modal Carrito de Compra -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -166,10 +127,6 @@
             </div>
         </div>
     </main>
-
-    <!-- MEJORAR FOOOTER -->
-    <!-- 
-    <footer class="container-fluid p-3 mb-5 rounded mt-5"> -->
     <footer class="container p-3 mb-5 rounded mt-5">
         <div class="d-flex justify-content-center">
             <div class="text-center">
@@ -231,18 +188,6 @@
             </div>
         </div>
     </footer>
-    <!-- <div class="container d-flex justify-content-center">
-            <div class="text-center">
-                <span class="btn btn-dark">FORMAS DE PAGO</span>
-            <ul class="d-flex flex-row mt-4">
-                <li><img src="https://essential.vteximg.com.br/arquivos/mark_mpagotodopago.png?v=636809932884830000">
-                </li>
-                <li><img src="https://essential.vteximg.com.br/arquivos/mark_medios__(2).png?v=636807433271530000"></li>
-                <li><img src="https://essential.vteximg.com.br/arquivos/mark_medios__(3).png?v=636749411141100000"></li>
-            </ul>
-            </div>
-        </div>
-    </footer> -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
         integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
         crossorigin="anonymous"></script>
@@ -250,12 +195,6 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
     <script src="./js/estrenos.js"></script>
-    <!-- <script src="./js/clases/Pelicula.js"></script>
-    <script src="./js/clases/Funcion.js"></script>
-    <script src="./js/clases/Producto.js"></script>
-    <script src="./js/main.js"></script>
-    <script src="./js/dom.js"></script>
-    <script src="./js/carrito.js"></script> -->
 </body>
 
 </html>
