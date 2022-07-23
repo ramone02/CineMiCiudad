@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
-    
 </head>
 
 <body>
@@ -23,86 +22,94 @@
                     <img src="./img/logo.png" class="agitar" width="60" height="50" alt="logo">
                 </a>
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="#" class="nav-link px-2 text-white">Inicio</a></li>
+                    <li><a href="./index.html" class="nav-link px-2 text-white">Inicio</a></li>
                     <li><a href="./estrenos.html" class="nav-link px-2 text-white">Estrenos</a></li>
                     <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
                     <li><a href="#" class="nav-link px-2 text-white">About</a></li>
                 </ul>
-
                 <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
                     <input type="search" class="form-control form-control-dark text-black "
                         placeholder="Ingrese su Busqueda" aria-label="Search">
                 </form>
-
-                <div class="text-end">
-                    <button type="button" class="btn btn-comprar" data-bs-toggle="modal"
-                        data-bs-target="#modalCarrito"><img src="./img/carrito.ico" id="carritoDeCompras" alt="Carrito de Compras" width="26">
-                        <span id="contadorCarrito"></span></button>
-                </div>
             </div>
         </div>
     </header>
     <main class="main-container">
-        <!-- Carrousel -->
-        <div id="carouselExampleCaptions" class="carousel slide " data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="./img/JUJUTSU.jpg" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Jujutsu Kaisen 0</h5>
-                        <p></p>
+
+        <div class="container d-flex flex-wrap justify-content-between text-white my-5">
+            <div class="text-wrap fs-4">
+                <p>En esta Seccion consumo la Api The Movie DataBase y muestro las ultimas Peliculas más Populares</p>
+                <p>La base de datos de películas (TMDB) es una base de datos de películas y TV creada por la
+                    comunidad. Cada dato ha sido
+                    agregado por nuestra increíble comunidad desde 2008. El sólido enfoque internacional de TMDb y
+                    la amplitud de los datos
+                    son en gran medida incomparables y es algo de lo que estamos increíblemente orgullosos. En pocas
+                    palabras, vivimos y
+                    respiramos en comunidad y eso es precisamente lo que nos hace diferentes.</p>
+            </div>
+            <div>
+                <span id="errorApi"></span>
+                <div class="d-flex flex-wrap">
+                    <div class="stat">
+                        <p>786.390</p>
+                        <p>Movies</p>
+                    </div>
+                    <div class="stat">
+                        <p>137.058</p>
+                        <p>TV Shows</p>
+                    </div>
+                    <div class="stat">
+                        <p>214.776</p>
+                        <p>TV Seasons</p>
+                    </div>
+                    <div class="stat">
+                        <p>3.287.498</p>
+                        <p>TV Episodes</p>
+                    </div>
+                    <div class="stat">
+                        <p>2.559.244</p>
+                        <p>People</p>
+                    </div>
+                    <div class="stat">
+                        <p>3.611.060</p>
+                        <p>Images</p>
                     </div>
                 </div>
-                <div class="carousel-item">
-                    <img src="./img/morbius.jpg" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Morbius</h5>
-                        <p></p>
-                    </div>
+                <div class="contact">
+                    <a href="#" class="contact button">Contact TMDB</a>
                 </div>
-                <div class="carousel-item">
-                    <img src="./img/JURASSIC.jpg" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Informacion Institucional</h5>
-                        <p></p>
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
-                    data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
-                    data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
+            </div>
+            <div>
+                <img src="https://www.themoviedb.org/assets/2/v4/marketing/sheldon-1a29d9f7807771f061c5a3799a61ed2f0a84505553c70fc99719df02335d9746.png"
+                    alt="">
             </div>
         </div>
-        <div class="container d-flex flex-wrap align-items-center justify-content-around align-self-stretch mt-3 p-3 text-white" id="cartelera">
-            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0" id="botoneraSemana">
-                <button type="button" class=" btn btn-comprar" id="cargarMainCartelera">Cartelera</button>                
-            </ul>
-            <form class="col-12 col-lg-auto mb-3 mb-lg-0 " role="search">
-                <input type="search" class="form-control form-control-dark text-black "
-                    placeholder="Ingrese su Busqueda" aria-label="Search" id="buscador">
-            </form>
+        <div class="container text-center text-white">
+            <h2>TMDB - Api</h2>
+            <div id="loader"></div>
         </div>
-        <div class="container mt-3" id="divCartelera">
-            
+        <div class="container mt-5" id="divEstrenos">
+
+
+        </div>
+        <div class="container d-flex justify-content-center mt-5">
+            <nav id="links">
+                <button class="btn btn-comprar" id="btnAnterior">Anterior</button>
+                <button class="btn btn-comprar" id="btnSiguiente">Siguiente</button>
+            </nav>
         </div>
         <!-- Modal Carrito de Compra -->
-        <div class="modal fade" id="modalCarrito" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content bg-dark">
+                <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title text-white" id="exampleModalLabel">Carrito de Compras</h5>
-                        <button type="button" class="btn-close text-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <h5 class="modal-title" id="exampleModalLabel">Carrito de Compras</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <table class="table table-dark table-striped" >
+                        <table class="table  table-striped" id="tablaCarrito">
                             <thead>
-                                <tr >
+                                <tr>
                                     <th scope="col">Dia</th>
                                     <th scope="col">Hora</th>
                                     <th scope="col">Pelicula</th>
@@ -111,16 +118,18 @@
                                     <th scope="col"></th>
                                 </tr>
                             </thead>
-                            <tbody id="tablaCarrito">
-                                
+                            <tbody id="tablaCarrito" class="bg-dark">
+
                             </tbody>
                         </table>
-                        <div class="d-flex flex-row-reverse text-white">
-                            <span id="precioTotal"></span>
+                        <div class="d-flex flex-row-reverse">
+                            <span type="button" class="btn btn-dark disabled" id="precioTotal"></span>
                         </div>
+
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-success" id="btn-pagar" data-bs-dismiss="modal">PAGAR</button>
+                        <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-success">PAGAR</button>
                     </div>
                 </div>
             </div>
@@ -133,7 +142,7 @@
                 <div class="mt-4">
                     <img src="./img/LOGO-MERCADO-PAGO.png" width="350px" />
                 </div>
-    
+
             </div>
         </div>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
@@ -165,7 +174,7 @@
                 </ul>
             </div>
             <div class="col mb-3">
-    
+
             </div>
             <div class="col mb-3">
                 <a href="https://www.linkedin.com/in/leonardo-bellido/" class=" mb-3 text-white text-decoration-none">
@@ -178,13 +187,9 @@
         integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
         crossorigin="anonymous"></script>
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/date-fns/1.9.0/date_fns.min.js"
-        integrity="sha512-ToehgZGJmTS39fU8sfP9/f0h2Zo6OeXXKgpdEgzqUtPfE5By1K/ZkD8Jtp5PlfdaWfGVx+Jw5j10h63wSwM1HA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
-    <script src="./js/dom.js"></script>
-    <script src="./js/carrito.js"></script>
+    <script src="./js/estrenos.js"></script>
 </body>
 
 </html>

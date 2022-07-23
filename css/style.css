@@ -11975,6 +11975,10 @@ header, body {
   background: radial-gradient(circle, #2e0447 0%, black 100%);
 }
 
+footer {
+  color: #fff;
+}
+
 .card {
   background: #2e0447;
   opacity: 25;
@@ -12034,9 +12038,9 @@ header, body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
   text-align: center;
   -webkit-box-shadow: 0 5px 10px #000;
           box-shadow: 0 5px 10px #000;
@@ -12050,7 +12054,7 @@ header, body {
 
 .card .back h3, .card .back .h3 {
   font-size: 30px;
-  margin-top: 20px;
+  margin-top: 10px;
   letter-spacing: 2px;
 }
 
@@ -12066,6 +12070,14 @@ header, body {
 .card:hover .back {
   -webkit-transform: perspective(600px) rotateY(360deg);
           transform: perspective(600px) rotateY(360deg);
+}
+
+.stat {
+  min-width: 25%;
+  padding-right: 40px;
+  padding-bottom: 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .btn.btn-cta {
@@ -12108,7 +12120,7 @@ header, body {
   margin-bottom: 1px;
 }
 
-ul {
+ul, li, a {
   list-style: none;
 }
 
@@ -12127,6 +12139,6 @@ ul {
       grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
   -ms-grid-rows: ()[minmax];
       grid-template-rows: repeat(minmax(33rem, 1fr));
-  gap: 25px;
+  grid-gap: 25px;
 }
 /*# sourceMappingURL=style.css.map */

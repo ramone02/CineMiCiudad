@@ -3,7 +3,7 @@ const tablaCarrito = document.getElementById("tablaCarrito");
 const contadorCarrito = document.getElementById("contadorCarrito");
 const precioTotal = document.getElementById("precioTotal");
 const carritoDeCompra = document.getElementById("carritoDeCompras");
-
+const modalCarrito = document.getElementById("modalCarrito");
 const btnPagar = document.getElementById("btn-pagar");
 
 
@@ -113,8 +113,9 @@ btnPagar.onclick = () => {
         })
     } else {
         localStorage.clear();
-        actualizarCarrito();
+        contadorCarrito.innerText = 0;
         precioTotal.innerText = 0;
+        actualizarCarrito();
         tablaCarrito.innerHTML = "";
         Swal.fire({
             title: 'Exito!',
@@ -122,7 +123,7 @@ btnPagar.onclick = () => {
             icon: 'success',
             iconColor: '#198754',
             confirmButtonColor: '#4f759b'
-        }).then(() => {
+        }).then(() => {            
             setTimeout(() => {
                 location.reload(true);
             }, 1000);

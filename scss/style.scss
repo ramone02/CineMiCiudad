@@ -14,6 +14,10 @@ header, body {
     background: radial-gradient(circle, rgba(46,4,71,1) 0%, rgba(0,0,0,1) 100%);
 
 }
+
+footer {
+    color: #fff;
+}
 .card{
     background: $terciary;
     opacity: 25;
@@ -62,7 +66,7 @@ header, body {
     color: #f3f3f3;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-evenly;
     text-align: center;
     box-shadow: 0 5px 10px #000;
 }
@@ -75,7 +79,7 @@ header, body {
 
 .card .back h3{
     font-size: 30px;
-    margin-top: 20px;
+    margin-top: 10px;
     letter-spacing: 2px;
 }
 
@@ -89,6 +93,13 @@ header, body {
 
 .card:hover .back{
     transform: perspective(600px) rotateY(360deg);
+}
+
+.stat {
+    min-width: 25%;
+    padding-right: 40px;
+    padding-bottom: 10px;
+    box-sizing: border-box;
 }
 
 .btn {
@@ -109,10 +120,7 @@ header, body {
     margin-bottom: 1px;
 }
 
-
-
-
-ul{
+ul, li, a{
     list-style: none;
 }
 #cartelera{
@@ -128,5 +136,5 @@ ul{
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
     grid-template-rows: repeat(minmax(33rem, 1fr));
-    gap: 25px;
+    grid-gap: 25px;
 }
