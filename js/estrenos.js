@@ -56,38 +56,14 @@ const cargarPeliculas = async () => {
         errorApi.innerHTML = `<b>Error ${error.status} - ${message}</b>`;
     }
 }
-
+document.addEventListener("DOMContentLoaded", cargarPeliculas());
+/* -------------------------------------------------------------------------------------- */
 /* const cotizacionDolar = async () => {
     
         const r = await fetch("https://api-dolar-argentina.herokuapp.com/api/dolaroficial");
         console.log(r);
         return r.json();   
 } */
-
-
-
-/* const cargarEstrenos = async () => {
-    const peliculas = await cargarPeliculas();
-    cartelera.innerHTML = "";
-    peliculas.forEach((pelicula) => {
-        //Creo la etiqueta div(card) dentro de mi main #divCartelera
-        const card = document.createElement("div");
-        //Le añado las clases correspondientes a mi "div card"
-        card.className = "card";
-        //E inserto la informacion de cada pelicula del array Cartelera
-        card.innerHTML = `<div class="face front">
-                                    <img src="https://image.tmdb.org/t/p/w500/${pelicula.poster_path}" alt="Banner">
-                                </div>
-                                <div class="face back">
-                                    <h3>${pelicula.original_title}</h3>
-                                    <p>${pelicula.overview}</p>
-                                </div>
-                                `;
-        cartelera.appendChild(card);
-    });
-} */
-
-document.addEventListener("DOMContentLoaded", cargarPeliculas());
 /* const mostrar = async () => {
     const r = await cotizacionDolar();
     console.log(r);
