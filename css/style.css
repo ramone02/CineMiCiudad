@@ -11967,16 +11967,91 @@ fieldset:disabled .btn {
   margin: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
-header, body {
-  background: #2e0447;
+body {
   background: radial-gradient(circle, #2e0447 0%, black 100%);
+  -webkit-transition: 0.3s ease all;
+  transition: 0.3s ease all;
+}
+
+body.light {
+  background: #f1f1f1;
+  color: black;
+}
+
+header {
+  background: radial-gradient(circle, #2e0447 0%, black 100%);
+}
+
+header a {
+  text-decoration: none;
+  color: white;
+}
+
+header a:hover {
+  color: #222222;
+}
+
+body.light header {
+  -webkit-box-shadow: 10px 10px 20px rgba(170, 170, 170, 0.16);
+          box-shadow: 10px 10px 20px rgba(170, 170, 170, 0.16);
+  background: #5d5179;
+  color: black;
+}
+
+body.light header a {
+  color: #000;
+}
+
+body.light header a:hover {
+  color: white;
+}
+
+.stats-tmdb {
+  color: #fff;
+}
+
+.stats-tmdb a {
+  text-decoration: none;
+}
+
+.stats-tmdb a:hover {
+  color: #222222;
+}
+
+body.light .stats-tmdb {
+  color: black;
+}
+
+body.light .stats-tmdb:hover {
+  color: white;
 }
 
 footer {
   color: #fff;
+}
+
+footer a {
+  text-decoration: none;
+  color: white;
+}
+
+footer a:hover {
+  color: #222222;
+}
+
+body.light footer {
+  color: black;
+}
+
+body.light footer a {
+  color: #000;
+}
+
+body.light footer a:hover {
+  color: white;
 }
 
 .card {
@@ -11987,6 +12062,10 @@ footer {
   border-radius: 10px;
 }
 
+body.light .card {
+  background: #5d5179;
+}
+
 .card .face {
   position: absolute;
   width: 100%;
@@ -11995,8 +12074,8 @@ footer {
           backface-visibility: hidden;
   border-radius: 10px;
   overflow: hidden;
-  -webkit-transition: .5s;
-  transition: .5s;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 
 .card .front {
@@ -12044,6 +12123,10 @@ footer {
   text-align: center;
   -webkit-box-shadow: 0 5px 10px #000;
           box-shadow: 0 5px 10px #000;
+}
+
+body.light .card .back {
+  background: #5d5179;
 }
 
 .card .back .link {
@@ -12112,6 +12195,27 @@ footer {
           box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.6);
 }
 
+body.light .btn.btn-cta {
+  background-color: #4f759b;
+  color: #fff;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  font-weight: bolder;
+}
+
+body.light .btn.btn-cta:hover {
+  color: black;
+  -webkit-box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.6);
+          box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.6);
+}
+
 .btn-comprar {
   background-color: #4f759b;
   color: #fff;
@@ -12120,7 +12224,19 @@ footer {
   margin-bottom: 1px;
 }
 
-ul, li, a {
+body.light .btn-comprar {
+  background: #2e0447;
+}
+
+body.light .btn-comprar:hover {
+  color: black;
+  -webkit-box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.6);
+          box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.6);
+}
+
+ul,
+li,
+a {
   list-style: none;
 }
 
@@ -12132,7 +12248,8 @@ ul, li, a {
   gap: 5px;
 }
 
-#divCartelera, #divEstrenos {
+#divCartelera,
+#divEstrenos {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (minmax(18rem, 1fr))[auto-fill];
@@ -12140,5 +12257,54 @@ ul, li, a {
   -ms-grid-rows: ()[minmax];
       grid-template-rows: repeat(minmax(33rem, 1fr));
   grid-gap: 25px;
+}
+
+/* ------------------------- Switch DarkMode/LightMode ----------------------------- */
+.switch {
+  background: #212529;
+  border-radius: 1000px;
+  border: none;
+  position: relative;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  outline: none;
+}
+
+.switch::after {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  background: #f1f1f1;
+  top: 0;
+  left: 0;
+  right: unset;
+  border-radius: 100px;
+  -webkit-transition: 0.5s ease all;
+  transition: 0.5s ease all;
+  -webkit-box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.switch.active {
+  background: #f78d3b;
+  color: black;
+}
+
+.switch.active::after {
+  right: 0;
+  left: unset;
+}
+
+.switch span {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  display: block;
+  background: none;
+  color: #f3f3f3;
 }
 /*# sourceMappingURL=style.css.map */

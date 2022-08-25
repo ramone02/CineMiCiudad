@@ -112,7 +112,7 @@ btnPagar.onclick = () => {
             confirmButtonColor: '#4f759b'
         })
     } else {
-        localStorage.clear();
+        localStorage.removeItem("carrito");
         contadorCarrito.innerText = 0;
         precioTotal.innerText = 0;
         actualizarCarrito();
@@ -123,7 +123,7 @@ btnPagar.onclick = () => {
             icon: 'success',
             iconColor: '#198754',
             confirmButtonColor: '#4f759b'
-        }).then(() => {            
+        }).then(() => {
             setTimeout(() => {
                 location.reload(true);
             }, 1000);

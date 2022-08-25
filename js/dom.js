@@ -54,7 +54,7 @@ async function llenarCarteleraxDia(diaIngresado) {
     llenarCarteleraMain(carteleraxDia);
 }
 
-const cargarCartelera = async ()=> {
+const cargarCartelera = async () => {
     try {
         const respuesta = await fetch('./data/cartelera.json');
         const data = await respuesta.json();
@@ -66,7 +66,7 @@ const cargarCartelera = async ()=> {
 
 /*  Recupero mi array del carrito que fui "guardando" en Local Storage  */
 const recuperarStorage = ((clave) => JSON.parse(localStorage.getItem(clave)));
-const verificarStorage = () => recuperarStorage() && (carrito= recuperarStorage());
+const verificarStorage = () => recuperarStorage() && (carrito = recuperarStorage());
 
 /* funcion principal donde inyecto las cards en mi "cartelera principal" - agreggo clases y botones de compra por cada card*/
 function llenarCarteleraMain(cartelera) {
@@ -105,7 +105,7 @@ function llenarCarteleraMain(cartelera) {
                 title: "Entrada Agregada con exito",
                 showConfirmButton: false,
                 timer: 3000,
-                timerProgressBar: true             
+                timerProgressBar: true
             });
         }
     })
@@ -118,7 +118,7 @@ agregarBotoneraSemana();
 /* cargarCartelera(); */
 const cargarStock = async () => {
     stockCartelera = await cargarCartelera()
-    llenarCarteleraMain( await stockCartelera);
+    llenarCarteleraMain(await stockCartelera);
 };
 cargarStock();
 

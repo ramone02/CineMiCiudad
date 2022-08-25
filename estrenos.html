@@ -10,33 +10,42 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
+    <script src="https://kit.fontawesome.com/de7292b10f.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
 </head>
 
 <body>
-    <header class="sticky-top p-3 bg-dark text-white">
-        <div class="container">
-            <div class="d-flex flex-wrap align-items-center justify-content-evenly justify-content-lg-start">
-                <a href="./index.html" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+    <header class="sticky-top p-3 ">
+        <nav class="navbar navbar-dark navbar-expand-lg">
+            <div class="container">
+                <a href="./index.html" class="d-flex align-items-center mb-2 mb-lg-0  ">
                     <img src="./img/logo.png" class="agitar" width="60" height="50" alt="logo">
                 </a>
-                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="./index.html" class="nav-link px-2 text-white">Inicio</a></li>
-                    <li><a href="./estrenos.html" class="nav-link px-2 text-white">Estrenos</a></li>
-                    <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
-                    <li><a href="#" class="nav-link px-2 text-white">About</a></li>
-                </ul>
-                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-                    <input type="search" class="form-control form-control-dark text-black "
-                        placeholder="Ingrese su Busqueda" aria-label="Search">
-                </form>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                        <li><a href="./index.html" class="nav px-2 text-decoration-none">Inicio</a></li>
+                        <li><a href="./estrenos.html" class="nav px-2">Estrenos</a></li>
+                        <li><a href="#" class="nav px-2">FAQs</a></li>
+                        <li><a href="#" class="nav px-2">About</a></li>
+                    </ul>
+                    <div class="d-flex justify-content-center align-items-center">
+                        <button class="switch" id="switch">
+                            <span><i class="fa-solid fa-sun"></i></span>
+                            <span><i class="fa-solid fa-moon"></i></span>
+                        </button>
+                    </div>
+                </div>
             </div>
-        </div>
+        </nav>
     </header>
     <main class="main-container">
-
-        <div class="container d-flex flex-wrap justify-content-between text-white my-5">
+        <div class="container stats-tmdb d-flex flex-wrap justify-content-between my-5">
             <div class="text-wrap fs-4">
                 <p>En esta Seccion consumo la Api The Movie DataBase y muestro las ultimas Peliculas más Populares</p>
                 <p>La base de datos de películas (TMDB) es una base de datos de películas y TV creada por la
@@ -76,7 +85,7 @@
                     </div>
                 </div>
                 <div class="contact">
-                    <a href="#" class="contact button">Contact TMDB</a>
+                    <a href="https://www.themoviedb.org/?language=es" class="contact button" target="_blank">Contact TMDB</a>
                 </div>
             </div>
             <div>
@@ -84,7 +93,7 @@
                     alt="">
             </div>
         </div>
-        <div class="container text-center text-white">
+        <div class="container stats-tmdb text-center">
             <h2>TMDB - Api</h2>
             <div id="loader"></div>
         </div>
@@ -142,42 +151,41 @@
                 <div class="mt-4">
                     <img src="./img/LOGO-MERCADO-PAGO.png" width="350px" />
                 </div>
-
             </div>
         </div>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
             <div class="col mb-3">
                 <h5>Section</h5>
                 <ul class="nav flex-column">
-                    <li class="mb-2"><a href="./index.html" class="text-white text-decoration-none">Inicio</a></li>
-                    <li class="mb-2"><a href="./estrenos.html" class="text-white text-decoration-none">Estrenos</a></li>
-                    <li class="mb-2"><a href="" class="text-white text-decoration-none">FAQs</a></li>
-                    <li class="mb-2"><a href="" class="text-white text-decoration-none">About</a></li>
+                    <li class="mb-2"><a href="./index.html" class="text-decoration-none">Inicio</a></li>
+                    <li class="mb-2"><a href="./estrenos.html" class="text-decoration-none">Estrenos</a></li>
+                    <li class="mb-2"><a href="" class="text-decoration-none">FAQs</a></li>
+                    <li class="mb-2"><a href="" class="text-decoration-none">About</a></li>
                 </ul>
             </div>
             <div class="col mb-3">
                 <h5>Section</h5>
                 <ul class="nav flex-column">
-                    <li class="mb-2"><a href="./index.html" class="text-white text-decoration-none">Inicio</a></li>
-                    <li class="mb-2"><a href="./estrenos.html" class="text-white text-decoration-none">Estrenos</a></li>
-                    <li class="mb-2"><a href="" class="text-white text-decoration-none">FAQs</a></li>
-                    <li class="mb-2"><a href="" class="text-white text-decoration-none">About</a></li>
+                    <li class="mb-2"><a href="./index.html" class="text-decoration-none">Inicio</a></li>
+                    <li class="mb-2"><a href="./estrenos.html" class="text-decoration-none">Estrenos</a></li>
+                    <li class="mb-2"><a href="" class="text-decoration-none">FAQs</a></li>
+                    <li class="mb-2"><a href="" class="text-decoration-none">About</a></li>
                 </ul>
             </div>
             <div class="col mb-3">
                 <h5>Section</h5>
                 <ul class="nav flex-column">
-                    <li class="mb-2"><a href="./index.html" class="text-white text-decoration-none">Inicio</a></li>
-                    <li class="mb-2"><a href="./estrenos.html" class="text-white text-decoration-none">Estrenos</a></li>
-                    <li class="mb-2"><a href="" class="text-white text-decoration-none">FAQs</a></li>
-                    <li class="mb-2"><a href="" class="text-white text-decoration-none">About</a></li>
+                    <li class="mb-2"><a href="./index.html" class="text-decoration-none">Inicio</a></li>
+                    <li class="mb-2"><a href="./estrenos.html" class="text-decoration-none">Estrenos</a></li>
+                    <li class="mb-2"><a href="" class="text-decoration-none">FAQs</a></li>
+                    <li class="mb-2"><a href="" class="text-decoration-none">About</a></li>
                 </ul>
             </div>
             <div class="col mb-3">
 
             </div>
             <div class="col mb-3">
-                <a href="https://www.linkedin.com/in/leonardo-bellido/" class=" mb-3 text-white text-decoration-none">
+                <a href="https://www.linkedin.com/in/leonardo-bellido/" class=" mb-3 text-decoration-none" target="_blank">
                     <img src="./img/linkedin.png" class="bi me-2" width="40" height="40"></img>
                     Bellido Leonardo &copy; 2022</a>
             </div>
@@ -192,6 +200,7 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
     <script src="./js/estrenos.js"></script>
+    <script src="./js/main.js"></script>
 </body>
 
 </html>

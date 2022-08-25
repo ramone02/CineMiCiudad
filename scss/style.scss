@@ -1,140 +1,288 @@
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 @import "variables";
-@import "mixin"; 
+@import "mixin";
 
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;   
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
 }
 
-header, body {
-    background: $terciary;
-    background: radial-gradient(circle, rgba(46,4,71,1) 0%, rgba(0,0,0,1) 100%);
+body {
+  background: radial-gradient(
+    circle,
+    rgba(46, 4, 71, 1) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  transition: 0.3s ease all;
 
+  &.light {
+    background: #f1f1f1;
+    color: black;
+  }
 }
 
-footer {
-    color: #fff;
-}
-.card{
-    background: $terciary;
-    opacity: 25;
-    position: relative;
-    height: 500px;
-    border-radius: 10px;
-}
+header {
+  background: radial-gradient(
+    circle,
+    rgba(46, 4, 71, 1) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  a {
+    text-decoration: none;
+    color: white;
 
-.card .face{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    border-radius: 10px;
-    overflow: hidden;
-    transition: .5s;
-}
+    &:hover {
+      color: #222222;
+    }
+  }
 
-.card .front{
-    transform: perspective(600px) rotateY(0deg);
-    box-shadow: 0 5px 10px #000;
-}
-
-.card .front img{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;    
-}
-
-.card .front h3{
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 45px;
-    line-height: 45px;
-    color: #fff;
-    background: rgba(0, 0, 0, 0.4);
-    text-align: center;    
-}
-
-.card .back{
-    transform: perspective(600px) rotateY(180deg);
+  body.light & {
+    box-shadow: $sombraDark;
     background: $primary;
-    padding: 15px;
-    color: #f3f3f3;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    text-align: center;
-    box-shadow: 0 5px 10px #000;
+    color: black;
+
+    a {
+      color: #000;
+
+      &:hover {
+        color: white;
+      }
+    }
+  }
 }
 
-.card .back .link{
-    border-top: solid 1px #f3f3f3;
-    height: 50px;
-    line-height: 50px;
+.stats-tmdb {
+  color: #fff;
+  a{
+    text-decoration: none;
+    &:hover {
+      color: #222222;
+    }
+  }
+  body.light & {
+    color: black;
+    &:hover {
+        color: white;
+      }
+  }
+}
+footer {
+  color: #fff;
+  a {
+    text-decoration: none;
+    color: white;
+
+    &:hover {
+      color: #222222;
+    }
+  }
+  body.light & {
+    color: black;
+    a {
+      color: #000;
+      &:hover {
+        color: white;
+      }
+    }
+  }
 }
 
-.card .back h3{
-    font-size: 30px;
-    margin-top: 10px;
-    letter-spacing: 2px;
+.card {
+  background: $terciary;
+  opacity: 25;
+  position: relative;
+  height: 500px;
+  border-radius: 10px;
+
+  body.light & {
+    background: $primary;
+  }
+}
+
+.card .face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: 0.5s;
+}
+
+.card .front {
+  transform: perspective(600px) rotateY(0deg);
+  box-shadow: 0 5px 10px #000;
+}
+
+.card .front img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card .front h3 {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 45px;
+  line-height: 45px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.4);
+  text-align: center;
+}
+
+.card .back {
+  transform: perspective(600px) rotateY(180deg);
+  background: $primary;
+  padding: 15px;
+  color: #f3f3f3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: center;
+  box-shadow: 0 5px 10px #000;
+
+  body.light & {
+    background: $primary;
+  }
+}
+
+.card .back .link {
+  border-top: solid 1px #f3f3f3;
+  height: 50px;
+  line-height: 50px;
+}
+
+.card .back h3 {
+  font-size: 30px;
+  margin-top: 10px;
+  letter-spacing: 2px;
 }
 
 .card .back .p {
-    letter-spacing: 1px;
+  letter-spacing: 1px;
 }
 
-.card:hover .front{
-    transform: perspective(600px) rotateY(180deg);
+.card:hover .front {
+  transform: perspective(600px) rotateY(180deg);
 }
 
-.card:hover .back{
-    transform: perspective(600px) rotateY(360deg);
+.card:hover .back {
+  transform: perspective(600px) rotateY(360deg);
 }
 
 .stat {
-    min-width: 25%;
-    padding-right: 40px;
-    padding-bottom: 10px;
-    box-sizing: border-box;
+  min-width: 25%;
+  padding-right: 40px;
+  padding-bottom: 10px;
+  box-sizing: border-box;
 }
 
 .btn {
-    &.btn-cta {
-        @include btn($terciary, #fff, "true");
+  &.btn-cta {
+    @include btn($terciary, #fff, "true");
+
     &:hover {
-        @include btn($primary, $terciary, "true");
+      @include btn($primary, $terciary, "true");
+      box-shadow: $box-shadow;
+    }
+  }
+
+  body.light & {
+    &.btn-cta {
+      @include btn($secondary, #fff, "true");
+
+      &:hover {
+        color: black;
         box-shadow: $box-shadow;
-        }
-    }    
+      }
+    }
+  }
 }
 
-.btn-comprar{
-    background-color: $secondary;
-    color: #fff;
-    text-align: center;
-    margin-top: 2px;
-    margin-bottom: 1px;
+.btn-comprar {
+  background-color: $secondary;
+  color: #fff;
+  text-align: center;
+  margin-top: 2px;
+  margin-bottom: 1px;
+
+  body.light & {
+    background: $terciary;
+    &:hover {
+      color: black;
+      box-shadow: $box-shadow;
+    }
+  }
 }
 
-ul, li, a{
-    list-style: none;
-}
-#cartelera{
-    
-    overflow-x: hidden;
-
+ul,
+li,
+a {
+  list-style: none;
 }
 
-#botoneraSemana{
-    gap: 5px;   
+#cartelera {
+  overflow-x: hidden;
 }
-#divCartelera, #divEstrenos{    
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
-    grid-template-rows: repeat(minmax(33rem, 1fr));
-    grid-gap: 25px;
+
+#botoneraSemana {
+  gap: 5px;
+}
+
+#divCartelera,
+#divEstrenos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+  grid-template-rows: repeat(minmax(33rem, 1fr));
+  grid-gap: 25px;
+}
+
+/* ------------------------- Switch DarkMode/LightMode ----------------------------- */
+
+.switch {
+  background: #212529;
+  border-radius: 1000px;
+  border: none;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  outline: none;
+
+  &::after {
+    content: "";
+    display: block;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    background: #f1f1f1;
+    top: 0;
+    left: 0;
+    right: unset;
+    border-radius: 100px;
+    transition: 0.5s ease all;
+    box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2);
+  }
+
+  &.active {
+    background: #f78d3b;
+    color: black;
+
+    &::after {
+      right: 0;
+      left: unset;
+    }
+  }
+
+  span {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    display: block;
+    background: none;
+    color: #f3f3f3;
+  }
 }
